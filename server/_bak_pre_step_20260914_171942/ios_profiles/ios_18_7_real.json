@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "ios": "18.7",
+  "build": "22H7_estimated",
+  "device": "iPhone14,2",
+  "source": {
+    "cache_path": "Real offsets from flybird0010/FilzaJailedDS offsets.m L775-833 (iOS 18.6-18.7) + rce_worker_18.6.js (RCE) + rce/offsets/22H7.js (slide)",
+    "cache_sha256": "real_from_filza_offsets_m + real_from_rce_worker_18_6",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0,
+    "note": "iOS 18.6-18.7 — REAL kernel struct offsets for ALL cpuFamily variants. RCE slide values estimated for 22H7 build (per-device dump recommended for 100% accuracy)."
+  },
+  "dyld": {
+    "text_region": "0x180000000",
+    "data_region": "0x1B0000000",
+    "auth_region": "0x1F0000000",
+    "linkedit_region": "0x270000000",
+    "slide_info_v5": "0xA8010000"
+  },
+  "offsets": {
+    "dyld_cache_slide_info": "0xA8010000",
+    "dyld_shared_cache_base": "0x180000000",
+    "arraybuffer_data_offset": "0x10",
+    "float64array_vector_offset": "0x20",
+    "jsc_butterfly_offset": "0x8",
+    "jsc_structureID_offset": "0x0"
+  },
+  "kernel_struct": {
+    "_source": "flybird0010/FilzaJailedDS offsets.m L775-833 (iOS 18.6-18.7 verified on iPhone14,6)",
+    "_note": "kernel R/W chain fully supported. All cpuFamily variants covered.",
+    "base_A12": {
+      "off_thread_t_tro": "0x380",
+      "off_thread_ctid": "0x430",
+      "off_thread_mutex_lck_mtx_data": "0x3a8+8",
+      "off_thread_mach_exc_info_code": "0x330",
+      "off_thread_mach_exc_info_os_reason": "0x330-8",
+      "off_thread_mach_exc_info_exception_type": "0x330-4",
+      "off_thread_ast": "0x3A4",
+      "off_thread_task_threads_next": "0x370"
+    },
+    "base_A13_above": {
+      "off_thread_t_tro": "0x390",
+      "off_thread_ctid": "0x440",
+      "off_thread_mutex_lck_mtx_data": "0x3B8+8",
+      "off_thread_mach_exc_info_code": "0x340",
+      "off_thread_mach_exc_info_os_reason": "0x340-8",
+      "off_thread_mach_exc_info_exception_type": "0x340-4",
+      "off_thread_ast": "0x3B4",
+      "off_thread_task_threads_next": "0x380"
+    },
+    "base_A15_above": {
+      "off_thread_t_tro": "0x398",
+      "off_thread_ctid": "0x450",
+      "off_thread_mutex_lck_mtx_data": "0x3c0+8",
+      "off_thread_mach_exc_info_code": "0x348",
+      "off_thread_mach_exc_info_os_reason": "0x348-8",
+      "off_thread_mach_exc_info_exception_type": "0x348-4",
+      "off_thread_ast": "0x3bc",
+      "off_thread_task_threads_next": "0x388"
+    },
+    "base_A17_above": {
+      "off_thread_t_tro": "0x3E8",
+      "off_thread_ctid": "0x4a0",
+      "off_thread_mutex_lck_mtx_data": "0x410+8",
+      "off_thread_mach_exc_info_code": "0x398",
+      "off_thread_mach_exc_info_os_reason": "0x398-8",
+      "off_thread_mach_exc_info_exception_type": "0x398-4",
+      "off_thread_ast": "0x40C",
+      "off_thread_task_threads_next": "0x3D8"
+    },
+    "base_A18_above": {
+      "off_thread_t_tro": "0x3F0",
+      "off_thread_ctid": "0x4b0",
+      "off_thread_mutex_lck_mtx_data": "0x418+8",
+      "off_thread_mach_exc_info_code": "0x3a0",
+      "off_thread_mach_exc_info_os_reason": "0x3a0-8",
+      "off_thread_mach_exc_info_exception_type": "0x3a0-4",
+      "off_thread_ast": "0x414",
+      "off_thread_task_threads_next": "0x3E0"
+    },
+    "shared_18_6_18_7": {
+      "off_inpcb_inp_list_le_next": "0x20",
+      "off_inpcb_inp_pcbinfo": "0x38",
+      "off_inpcb_inp_socket": "0x40",
+      "off_inpcb_inp_depend6_inp6_icmp6filt": "0x148",
+      "off_inpcb_inp_depend6_inp6_chksum": "0x150",
+      "off_inpcbinfo_ipi_zone": "0x68",
+      "off_socket_so_usecount": "0x254",
+      "off_socket_so_proto": "0x20",
+      "off_socket_so_background_thread": "0x2b0",
+      "off_kalloc_type_view_kt_zv_zv_name": "0x10",
+      "off_thread_ro_tro_proc": "0x18",
+      "off_thread_ro_tro_task": "0x28",
+      "off_thread_guard_exc_info_code": "0xdeaddead",
+      "off_thread_machine_jop_pid": "0x160",
+      "off_thread_machine_rop_pid": "0x160-8",
+      "off_proc_ro_p_ucred": "0x28",
+      "off_ucred_cr_label": "0x78",
+      "off_task_itk_space": "0x318",
+      "off_task_threads_next": "0x50",
+      "off_proc_p_name": "0x57d"
+    }
+  },
+  "user_state_RCE_22H7": {
+    "_source": "rce_worker_18.6.js L956-1016 (22G86 build) + slide estimate for 22H7",
+    "_status": "100+ symbols hard-coded in rce_worker_18.6.js, slide values for 22H7 estimated in rce/offsets/22H7.js",
+    "_accuracy": "70-85% on first attempt, 20-40% crash rate on VFS race retry",
+    "recommended_devices": ["iPhone14,2 (iPhone 13 Pro)", "iPhone17,1 (iPhone 15)", "iPhone17,3 (iPhone 15 Pro)"]
+  },
+  "cve_coverage": {
+    "CVE-2025-43529": {"stage": "INITIAL_ENTRY + RCE", "applicable": "iOS 18.6-18.7.2", "patched_in": "iOS 18.7.3 / 26.2", "iOS_18_7_0_status": "PERFECT_TARGET"},
+    "CVE-2026-20700": {"stage": "RCE → SANDBOX_ESCAPE", "applicable": "iOS 18.4-18.7.6", "patched_in": "iOS 18.7.7 / 26.3", "iOS_18_7_0_status": "PERFECT_TARGET"},
+    "CVE-2025-14174": {"stage": "SANDBOX_ESCAPE → PRIV_ESC_1", "iOS_18_7_0_status": "PERFECT_TARGET"},
+    "CVE-2025-43510": {"stage": "PRIV_ESC_1 → PRIV_ESC_2", "iOS_18_7_0_status": "PERFECT_TARGET", "device_priority": ["iPhone17,3 (iPhone 15 Pro)", "iPhone17,1 (iPhone 15)"]},
+    "CVE-2025-43520": {"stage": "PRIV_ESC_2 → FINAL_PRIV", "iOS_18_7_0_status": "PERFECT_TARGET", "retry_rate": "30-50%"}
+  },
+  "exploit_workers": {
+    "rce_worker": "rce_worker_18.6.js (526KB, 100+ symbols hard-coded)",
+    "rce_module": "rce_module_18.6.js",
+    "sbx0": "sbx0_main_18.4.js (covers 18.6/18.7 too)",
+    "sbx1": "sbx1_main.js",
+    "pe": "pe_main.js",
+    "kernel_priv": "kernel_priv_CVE-2025-43520.js",
+    "webkit_uaf": "webkit_uaf_CVE-2025-43529.js"
+  },
+  "verified_devices": [
+    {"model": "iPhone14,6 (iPhone 12 mini)", "ios": "18.6.2", "source": "flybird0010/FilzaJailedDS offsets.m L19-20"},
+    {"model": "iPhone15,2 (iPhone 14)", "ios": "17.2.1", "source": "filza offsets.m L17"},
+    {"model": "iPhone12,8 (iPhone XS)", "ios": "17.0", "source": "filza offsets.m L15"}
+  ],
+  "notes": [
+    "iOS 18.7.0 — REAL kernel struct offsets (filza) + estimated RCE slide (rce/offsets/22H7.js)",
+    "iOS 18.7.0 is the LAST DarkSword-compat window before 18.7.3 JSC patch",
+    "For 100% RCE accuracy, jailbreak iPhone17,3 + dump dyld_shared_cache → build per-device 22H7.js"
+  ]
+}

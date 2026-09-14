@@ -1,0 +1,8 @@
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -

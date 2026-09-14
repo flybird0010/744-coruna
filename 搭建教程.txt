@@ -1,0 +1,269 @@
+准备域名一条  （可以多域名部署，我这里只做单域名部署）
+aa123.abrdns.com
+
+这里强调一下 生产环境部署 这里要配置跨域
+/www/wwwroot/coruna1/server1/admin/.env 中
+ 风险：SECRET_KEY
+生产环境中务必修改这个值（随便敲一段复杂的乱码即可），否则容易被伪造 JWT 令牌导致后台被黑。
+CORS_ORIGINS=https://aa123.abrdns.com,http://localhost:7000,...( 增加公网域名，保留原有的)
+DARKSWORD_PUBLIC_BASE  这个是攻击域名配置 例如： DARKSWORD_PUBLIC_BASE=https://aa123.abrdns.comt（公网域名）
+
+需要开启两个端口  	
+7000和7070
+7000是管理后台端口
+7070是攻击服务端口
+
+
+服务端启动命令
+python3 -m uvicorn admin.main:app --host 0.0.0.0 --port 7000 --workers 2
+等待完成  攻击端用进程守护搭建
+（宝塔有时候要安装完整依赖
+apt-get update && apt-get install -y python3.10-venv python3.10-dev python3-pip build-essential）
+
+═══════════════════════════════════════════════════════
+   在宝塔『软件商店』→『Supervisor』→『添加守护进程』里填两个：
+
+  ┌───────────────────────────────────────────────────┐
+  │  守护进程 1: coruna_exploit
+  ├───────────────────────────────────────────────────┤
+  │  Name (名称):               coruna_exploit
+  │  Run User (运行用户):       root
+  │  Processes (进程数):        1
+  │  Startup priority (启动顺序): 999
+  │  Process directory (运行目录): /www/wwwroot/coruna/server/
+  │  Remark (备注):             coruna_exploit
+  │  Start command (启动命令) ★ 整句复制粘贴不要截断！★
+  │
+  │  /www/server/pyporject_evn/versions/3.12.13/bin/python3 /www/wwwroot/coruna/server/exploit_server.py --port 7070 --no-port-80 --skip-port-80
+  │
+  └───────────────────────────────────────────────────┘
+
+  ┌───────────────────────────────────────────────────┐
+  │  守护进程 2: coruna_admin
+  ├───────────────────────────────────────────────────┤
+  │  Name (名称):               coruna_admin
+  │  Run User (运行用户):       root
+  │  Processes (进程数):        1
+  │  Startup priority:          999
+  │  Process directory (运行目录): /www/wwwroot/coruna/server/
+  │  Remark (备注):             coruna_admin
+  │  Start command (启动命令) ★ 整句复制粘贴不要截断！★
+  │
+  │  /www/server/pyporject_evn/versions/3.12.13/bin/python3 -m uvicorn admin.main:app --host 127.0.0.1 --port 7000
+  │
+  └───────────────────────────────────────────────────┘
+
+攻击端启动 进程守护 海外宝塔好像是叫做Supervisor 
+/www/server/pyporject_evn/versions/3.12.13/bin/python3 exploit_server.py --port 7070
+
+管理后台部署vue  给你们走一遍流程
+安装依赖
+npm install
+打包
+npm run build
+
+直接把打包好的文件复制到\coruna\server\frontend  连带dist文件夹一起复制
+然后再一起上传到服务器里面  也可以不用重新打包 直接用就行  如果你修改了什么 才需要替换
+我服务器这里 之前测试的时候有打包过一份
+
+
+
+
+单域名方案 
+server
+{
+    listen 80;
+    listen 443 ssl;
+    listen 443 quic;
+    http2 on;
+    http3 on;
+    server_name aa1234.dpdns.org;
+    index index.html;
+    root /www/wwwroot/coruna/server/frontend/dist;
+
+    #SSL-START SSL related configuration, do NOT delete or modify the next line of commented-out 404 rules
+    #error_page 404/404.html;
+    #HTTP_TO_HTTPS_START
+    if ($server_port !~ 443){
+        rewrite ^(/.*)$ https://$host$1 permanent;
+    }
+    #HTTP_TO_HTTPS_END
+    ssl_certificate    /www/server/panel/vhost/cert/aa1234.dpdns.org/fullchain.pem;
+    ssl_certificate_key    /www/server/panel/vhost/cert/aa1234.dpdns.org/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+    ssl_prefer_server_ciphers on;
+    ssl_session_tickets on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000";
+    add_header Alt-Svc 'quic=":443"; h3=":443"; h3-29=":443"; h3-27=":443";h3-25=":443"; h3-T050=":443"; h3-Q050=":443";h3-Q049=":443";h3-Q048=":443"; h3-Q046=":443"; h3-Q043=":443"';
+    quic_retry on;
+    quic_gso on;
+    ssl_early_data on;
+    error_page 497 https://$host$request_uri;
+    #SSL-END
+
+    #CERT-APPLY-CHECK--START
+    # 用于SSL证书申请时的文件验证相关配置 -- 请勿删除
+    include /www/server/panel/vhost/nginx/well-known/aa1234.dpdns.org.conf;
+    #CERT-APPLY-CHECK--END
+
+    # 证书申请与静态校验支持
+    location ~ /\.well-known {
+        allow all;
+    }
+
+    # ======================================================================
+    # Nginx Location 优先级：=（精确）> ^~（前缀-禁止继续正则）> ~（正则 按顺序）> 普通前缀
+    # 关键：下面的 /api /assets /docs 等用 ^~，确保不会被攻击端正则 location 误拦截
+    # ======================================================================
+
+    # SSE 通知流 → 7000 (必须关缓冲, 避免断连)
+    location = /api/notifications/stream {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 3600s;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+        proxy_set_header Connection '';
+    }
+
+    # 管理台 API → 7000   【使用 ^~，确保优先级高于下方攻击端的正则 location】
+    location ^~ /api {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    # 管理台前 /dist 静态资源 → 7000   【使用 ^~，优先级高于正则】
+    location ^~ /assets/ {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    # 管理台 Docs/OpenAPI → 7000   【使用 ^~，不被 .json/.js 正则误拦】
+    location ^~ /docs {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+    location ^~ /redoc {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+    location = /openapi.json {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    # ----------------------------------------------------------------------
+    # 业务/攻击端路径（目录级）→ 7070
+    # 新增: /exploits/ /ios_profiles/
+    # ----------------------------------------------------------------------
+    location ~ ^/(ch/|if/|t/|e/|sdk/|upload/|report|payloads/|cmd|cmd_result|exploits/|ios_profiles/) {
+        proxy_pass http://127.0.0.1:7070;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    # ----------------------------------------------------------------------
+    # /group.html 与 /index.html 精确匹配 → 7070
+    # ----------------------------------------------------------------------
+    location = /group.html { proxy_pass http://127.0.0.1:7070; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; }
+    location = /index.html { proxy_pass http://127.0.0.1:7070; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; }
+
+    # ----------------------------------------------------------------------
+    # 攻击端根级别载荷文件 → 7070（Stage1~3 / platform_module / <sha>.min.js 等）
+    # 注意：这些文件都以 /xxx.<ext> 形式直接挂根，且与管理台前端路由不冲突
+    # 管理台前前端路由是 SPA 路径（/login /dashboard ...），不含 .扩展名
+    # 【使用更严格的正则：只匹配根目录下 1 层、且扩展名严格命中】
+    # ----------------------------------------------------------------------
+    location ~ ^/[^/]+\.(js|mjs|dylib|bin|wasm)$ {
+        proxy_pass http://127.0.0.1:7070;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    # 其余 → 7000 (管理台前端入口 / SPA)
+    location / {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+    }
+
+    access_log  /www/wwwlogs/aa1234.dpdns.org.log;
+    error_log  /www/wwwlogs/aa1234.dpdns.org.error.log;
+}
+
+
+
+登录认证失败 用下面的命令来重置  这里的路径一定要改
+处理管理后台登录报错401
+cat > /tmp/fix_login.py << 'EOF'
+import sys
+sys.path.insert(0, '/www/wwwroot/coruna/server')
+from admin.database import SessionLocal, User, Settings
+from admin.auth import get_password_hash
+
+db = SessionLocal()
+u = db.query(User).filter(User.username == 'admin').first()
+if not u:
+    u = User(username='admin', password=get_password_hash('admin_123'), role='admin')
+    db.add(u)
+    print('created new admin')
+else:
+    u.password = get_password_hash('admin_123')
+    u.google_2fa_enabled = 0
+    u.google_2fa_secret = None
+    u.failed_2fa_attempts = 0
+    u.locked_until = None
+    u.token_version = (u.token_version or 0) + 1
+
+for k in ['security.require_2fa', 'security.force_2fa_users']:
+    s = db.query(Settings).filter(Settings.key == k).first()
+    if s:
+        s.value = 'false'
+db.commit()
+db.close()
+print('OK: admin 密码已重置为 admin_123，2FA 已关闭')
+EOF
+
+/www/server/pyporject_evn/versions/3.12.13/bin/python3 /tmp/fix_login.py
+
+
+
+
+大概就是这些功能  模板管理多数是空白的  OK 教程结束！
+ios上玩  必须申请ssl 自行申请就行了，因为 iOS 很多高级浏览器漏洞（尤其是 WebKit UAF 或 PPL 绕过相关的漏洞利用）只能在 HTTPS 环境下触发。请务必在宝塔里为该站点申请并强制开启 HTTPS。。
+
+
+
+DarkSword 3 处占位符（iOS 15 kernel R/W、iOS 18.4 fontIdentifier、iOS 26 JOP 链）的补齐
+
+tail -200 /www/wwwroot/coruna/server/logs/exploit_stdout.log
+tail -100 /www/wwwroot/coruna/server/logs/server.log 2>/dev/null
+# Nginx 错误日志：
+tail -50 /www/wwwlogs/aa1234.dpdns.org.error.log 2>/dev/null

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "ios": "18.7",
+  "build": "22H7_estimated",
+  "device": "iPhone14,2",
+  "source": {
+    "cache_path": "iOS 18.7.0 PUBLIC rce_worker_18.7.js does NOT EXIST (verified via Censys Aug 2026 + FemtoSec July 2026 leak analysis)",
+    "cache_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0,
+    "note": "iOS 18.7.0 has NO public DarkSword offsets. Censys confirmed 14 build variants across operators. Per-device dyld_shared_cache dump REQUIRED to recover slide table for 22H* build."
+  },
+  "dyld": {
+    "text_region": "0x180000000",
+    "data_region": "0x1B0000000",
+    "auth_region": "0x1F0000000",
+    "linkedit_region": "0x270000000",
+    "slide_info_v5": "0xA8010000"
+  },
+  "offsets": {
+    "dyld_cache_slide_info": "0xA8010000",
+    "dyld_shared_cache_base": "0x180000000",
+    "arraybuffer_data_offset": "0x10",
+    "float64array_vector_offset": "0x20",
+    "jsc_butterfly_offset": "0x8",
+    "jsc_structureID_offset": "0x0"
+  },
+  "slide_map_22H7_estimated": {
+    "note": "iOS 18.7.0 slide values are CLOSE to iOS 18.6.2 (22G100) but +0x200000-0x800000 typical for minor build",
+    "iPhone11,2_4_6_estimated": "0x27103c000n",
+    "iPhone11,8_estimated": "0x271020000n",
+    "iPhone12,1_estimated": "0x271138000n",
+    "iPhone12,3_5_estimated": "0x271138000n",
+    "iPhone12,8_estimated": "0x271070000n",
+    "iPhone13,1_estimated": "0x2713a4000n",
+    "iPhone13,2_3_estimated": "0x271dd4000n",
+    "iPhone13,4_estimated": "0x271dd4000n",
+    "iPhone14,2_estimated": "0x2721a4000n",
+    "iPhone14,3_estimated": "0x2721a4000n",
+    "iPhone14,4_estimated": "0x271778000n",
+    "iPhone14,5_estimated": "0x271778000n",
+    "iPhone14,6_estimated": "0x271720000n",
+    "iPhone14,7_estimated": "0x271b84000n",
+    "iPhone14,8_estimated": "0x271b84000n",
+    "iPhone15,2_estimated": "0x27292c000n",
+    "iPhone15,3_estimated": "0x27292c000n",
+    "iPhone15,4_estimated": "0x271f50000n",
+    "iPhone15,5_estimated": "0x271f50000n",
+    "iPhone16,1_estimated": "0x272e64000n",
+    "iPhone16,2_estimated": "0x272e64000n",
+    "iPhone17,1_estimated": "0x272724000n",
+    "iPhone17,2_estimated": "0x272724000n",
+    "iPhone17,3_estimated": "0x2720bc000n",
+    "iPhone17,4_estimated": "0x2720bc000n",
+    "iPhone17,5_estimated": "0x271e04000n",
+    "warning": "These are ESTIMATES from 22G100 + build-delta heuristic. Real verification requires per-device dyld_shared_cache dump via psw/ipsw tools."
+  },
+  "symbols": {
+    "note": "iOS 18.7.0 symbol addresses unknown publicly. Using 22G100 (iOS 18.6.2) as last-known-good approximation. JSC patches ship in 18.7.3 only, so 18.7.0 JSC base should be SAME as 22G100. PAC bypass (CVE-2026-20700) patches in 18.7.7, so PAC gadgets SAME as 22G100.",
+    "libsystem_kernel.dylib": {
+      "base": "0x1D39F0000_estimated",
+      "thread_suspend": "0x1D39F31C0_estimated",
+      "note": "libsystem_kernel__thread_suspend : 0x1d39f31c0n (carry-over from 22G100, expected stable)"
+    },
+    "libsystem_pthread.dylib": {
+      "base": "0x20D01C000_estimated",
+      "pthread_create": "0x20D022988_estimated",
+      "pthread_linkedit": "0x271004000_estimated",
+      "note": "pthread_linkedit shifted from 22G100 due to slide map delta"
+    },
+    "JavaScriptCore.dylib": {
+      "base": "0x19A0FE000_estimated",
+      "jitAllowList": "0x1ED956470_estimated",
+      "note": "jsc_base stable across 18.6 → 18.7.0 (patch only in 18.7.3)"
+    },
+    "dyld.dylib": {
+      "note": "dyld PATCHED in 18.7.7 (CVE-2026-20700). 18.7.0 is BEFORE patch — same addresses as 22G100"
+    }
+  },
+  "kernel_globals": {
+    "note": "iOS 18.7.0 kernel struct offsets UNKNOWN publicly. Use 22G100 (18.6.2) heuristics. CVE-2025-43520 (VFS race) NOT patched in 18.7.0 — chain still works.",
+    "allproc_off_hint": "0x438c488",
+    "kernproc_off_hint": "0xc4a0b8",
+    "xnu_version_18_7": "12377.140.x_estimated",
+    "warning": "Kernel R/W via VFS race is fragile on iOS 18.7.0. Crash rate may be 30-50% on first attempt."
+  },
+  "exploit_workers": {
+    "rce_worker": "rce_worker_18.6.js",
+    "rce_module": "rce_module_18.6.js",
+    "note": "rce_loader.js L123-125 routes iOS 18.7 → rce_worker_18.6.js (real public worker)",
+    "sbx0": "sbx0_main_18.4.js",
+    "sbx1": "sbx1_main.js",
+    "pe": "pe_main.js",
+    "kernel_priv": "kernel_priv_CVE-2025-43520.js",
+    "webkit_uaf": "webkit_uaf_CVE-2025-43529.js"
+  },
+  "cve_coverage": {
+    "CVE-2025-43529": {"stage": "INITIAL_ENTRY + RCE", "applicable": "iOS 18.7.0 PERFECT TARGET", "patched_in": "iOS 18.7.3 / 26.2", "exploit_path": "webkit_uaf_CVE-2025-43529.js + rce_worker_18.6.js L91 rce_offsets"},
+    "CVE-2026-20700": {"stage": "RCE → SANDBOX_ESCAPE", "applicable": "iOS 18.7.0 PERFECT TARGET", "patched_in": "iOS 18.7.7 / 26.3", "exploit_path": "dyld__signPointer + RuntimeState_vtable in rce_worker_18.6.js L113-115"},
+    "CVE-2025-14174": {"stage": "SANDBOX_ESCAPE → PRIV_ESC_1", "applicable": "iOS 18.7.0 PERFECT TARGET", "exploit_path": "angle_webgl_CVE-2025-14174.js"},
+    "CVE-2025-43510": {"stage": "PRIV_ESC_1 → PRIV_ESC_2", "applicable": "iOS 18.7.0 PERFECT TARGET", "exploit_path": "AppleM2ScalerCSCDriver COW"},
+    "CVE-2025-43520": {"stage": "PRIV_ESC_2 → FINAL_PRIV", "applicable": "iOS 18.7.0 PERFECT TARGET", "exploit_path": "kernel_priv_CVE-2025-43520.js VFS race"}
+  },
+  "iOS_18_7_3_warning": "iOS 18.7.3+ patches JSC (CVE-2025-43529). Auto-fallback to BROWSER-ONLY via chain_loader.js.",
+  "iOS_18_7_7_warning": "iOS 18.7.7+ patches PAC bypass (CVE-2026-20700). Auto-fallback to BROWSER-ONLY.",
+  "sbx0_offsets": {
+    "note": "GPU process sandbox escape — same as 18.6 (not yet patched in 18.7)",
+    "WebKit_base": "varies_by_device_22H7_estimated",
+    "available": true
+  },
+  "sbx1_offsets": {
+    "note": "IOSurface kernel R/W — same as 18.6",
+    "available": true
+  },
+  "notes": [
+    "iOS 18.7.0 — NO PUBLIC DarkSword offsets. Public DarkSword-RCE stops at 18.6.2.",
+    "Real verification path: dump dyld_shared_cache from iOS 18.7.0 device via ssh/tfp0 + ipsw extraction",
+    "Slide dictionary in rce_worker_18.6.js only has 22G86/22G90/22G100 (18.6.x). 22H7 needs extension.",
+    "CVE-2025-43529 + CVE-2026-20700 + CVE-2025-14174 + CVE-2025-43510 + CVE-2025-43520 ALL UNPATCHED in 18.7.0",
+    "iOS 18.7.0 is the LAST DarkSword-compat window before 18.7.3 JSC patch",
+    "Crash rate on first attempt typically 20-40% due to VFS race timing; retry 2-3 times",
+    "DEVICE TARGET PRIORITY: iPhone 15/15+/15 Pro/Pro Max (iPhone17,1/17,2/17,3/17,4) have best CVE-2025-43510 (M2/M3 GPU driver) coverage"
+  ]
+}

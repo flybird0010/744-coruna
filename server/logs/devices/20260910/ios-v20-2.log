@@ -1,0 +1,2 @@
+[2026-09-10 23:55:56] [CMD-RESULT-GET-FALLBACK] id=5 status=completed out_len=30
+[2026-09-10 23:55:56] [REQUEST] "GET /cmd_result?id=5&status=completed&device_uuid=ios-v20-2&output=test%20v20%20GET%20query%20fallback%20OK HTTP/1.1" 200 -

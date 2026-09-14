@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "version": "1.0.0",
+  "description": "XNU kernel struct offsets by iOS version × CPU family. Source: flybird0010/FilzaJailedDS offsets.m (951 lines, verified on iPhone14,6 iOS 18.6.2 + 26.0). Cross-verified with macOS Sonoma 14.0 KDK.",
+  "_source": "https://raw.githubusercontent.com/flybird0010/FilzaJailedDS/main/kexploit/offsets.m",
+  "_verified_devices": [
+    "iPhone12,8 (iPhone XS) iOS 17.0",
+    "iPhone13,1 (iPhone 12 mini) iOS 17.6.1",
+    "iPhone15,2 (iPhone 14) iOS 17.2.1",
+    "iPad7,11 (iPad 7) iOS 18.0",
+    "iPhone14,6 (iPhone 12 mini) iOS 18.6.2",
+    "iPhone14,6 (iPhone 12 mini) iOS 26.0"
+  ],
+  "cpu_family": {
+    "A10":   {"id": "ARM_HURRICANE",         "value": "0x67ceee93", "devices": ["iPhone10,2 (iPhone 7)", "iPhone10,3 (iPhone 7 Plus)", "iPad7,11/12 (iPad 6/7)"]},
+    "A11":   {"id": "ARM_MONSOON_MISTRAL",   "value": "0xe81e7ef6", "devices": ["iPhone10,1/10,4/10,5/10,6 (iPhone 8/X)"]},
+    "A12":   {"id": "ARM_VORTEX_TEMPEST",    "value": "0x07d34b9f", "devices": ["iPhone11,2/11,4/11,6 (iPhone XS/XR)", "iPad11,3/11,4 (iPad Pro 3rd)"]},
+    "A13":   {"id": "ARM_LIGHTNING_THUNDER", "value": "0x462504d2", "devices": ["iPhone12,1/12,3/12,5 (iPhone 11/11 Pro)"]},
+    "A14_M1":  {"id": "ARM_FIRESTORM_ICESTORM", "value": "0x1b588bb3", "devices": ["iPhone13,1/13,2/13,3/13,4 (iPhone 12)", "iPad14,3/14,4/14,5/14,6 (iPad Air/Pro M1)"]},
+    "A15_M2":  {"id": "ARM_BLIZZARD_AVALANCHE","value": "0xda33d83d", "devices": ["iPhone14,2/14,3/14,4/14,5/14,6/14,7/14,8 (iPhone 13/14)", "iPad14,3 (M2 iPad Pro)"]},
+    "A16":   {"id": "ARM_EVEREST_SAWTOOTH",  "value": "0x8765edea", "devices": ["iPhone15,2/15,3 (iPhone 14 Pro/Pro Max)"]},
+    "A17":   {"id": "ARM_COLL",              "value": "0x2876f5b5", "devices": ["iPhone15,4/15,5 (iPhone 15/Plus)"]},
+    "A18":   {"id": "ARM_TUPAI",             "value": "0x204526d0", "devices": ["iPhone16,1/16,2 (iPhone 16/Plus)"]},
+    "A18_Pro":{"id": "ARM_TAHITI",            "value": "0x75d4acb9", "devices": ["iPhone17,1/17,2 (iPhone 16 Pro/Pro Max)"]},
+    "M3":    {"id": "ARM_IBIZA",             "value": "0xfa33415e", "devices": ["iPad15,3/15,4/15,5/15,6 (M3 iPad Pro/Air)"]},
+    "M4":    {"id": "ARM_DONAN",             "value": "0x6f5129ac", "devices": ["iPad16,3/16,4/16,5/16,6 (M4 iPad Pro)"]},
+    "A19":   {"id": "ARM_TILOS",             "value": "0x01d7a72b", "devices": ["iPhone18,x (iPhone 17 series — future)"]},
+    "A19_Pro":{"id": "ARM_THERA",            "value": "0xab345f09", "devices": ["iPhone18,x Pro (future)"]}
+  },
+  "offsets_matrix": {
+    "iOS_17_0": {
+      "_source": "filza offsets.m L252-401",
+      "A12": {
+        "off_thread_t_tro": "0x358", "off_thread_ctid": "0x408", "off_thread_mutex_lck_mtx_data": "0x380+8",
+        "off_thread_machine_kstackptr": "0xe8", "off_thread_machine_jop_pid": "0x158", "off_thread_machine_rop_pid": "0x158-8",
+        "off_thread_guard_exc_info_code": "0x308", "off_thread_ast": "0x37c", "off_thread_task_threads_next": "0x348",
+        "off_thread_machine_upcb": "0xb0", "off_thread_options": "0x70", "off_task_task_exc_guard": "0x5bc"
+      },
+      "A13": {
+        "off_thread_t_tro": "0x368", "off_thread_ctid": "0x418", "off_thread_mutex_lck_mtx_data": "0x390+8",
+        "off_thread_machine_kstackptr": "0xf0", "off_thread_machine_jop_pid": "0x160", "off_thread_machine_rop_pid": "0x160-8",
+        "off_thread_guard_exc_info_code": "0x318", "off_thread_ast": "0x38c", "off_thread_task_threads_next": "0x358",
+        "off_thread_machine_upcb": "0xb0", "off_thread_options": "0x70"
+      },
+      "A15_M2": {
+        "off_thread_t_tro": "0x370", "off_thread_ctid": "0x420", "off_thread_mutex_lck_mtx_data": "0x398+8",
+        "off_thread_machine_jop_pid": "0x168", "off_thread_machine_rop_pid": "0x168-8",
+        "off_thread_guard_exc_info_code": "0x320", "off_thread_ast": "0x394", "off_thread_task_threads_next": "0x360",
+        "off_task_task_exc_guard": "0x5d4"
+      },
+      "A17": {
+        "off_thread_t_tro": "0x3c0", "off_thread_ctid": "0x470", "off_thread_mutex_lck_mtx_data": "0x3e8+8",
+        "off_thread_machine_kstackptr": "0x140", "off_thread_machine_jop_pid": "0x1B8", "off_thread_machine_rop_pid": "0x1B8-8",
+        "off_thread_guard_exc_info_code": "0x370", "off_thread_ast": "0x3e4", "off_thread_task_threads_next": "0x3b0",
+        "off_thread_machine_upcb": "0x100", "off_thread_options": "0xc0"
+      },
+      "A10": {
+        "off_thread_t_tro": "0x388", "off_thread_ctid": "0x438", "off_thread_mutex_lck_mtx_data": "0x3b0+8",
+        "off_thread_machine_kstackptr": "0x130", "off_thread_machine_jop_pid": "0xdeaddead", "off_thread_machine_rop_pid": "0xdeaddead",
+        "off_thread_guard_exc_info_code": "0x338", "off_thread_ast": "0x3ac", "off_thread_task_threads_next": "0x378",
+        "off_thread_machine_upcb": "0xf8", "off_thread_options": "0xb8", "off_task_task_exc_guard": "0x59c"
+      }
+    },
+    "iOS_18_0": {
+      "_source": "filza offsets.m L513-654",
+      "A12": {
+        "off_thread_t_tro": "0x378", "off_thread_ctid": "0x428", "off_thread_mutex_lck_mtx_data": "0x3a0+8",
+        "off_thread_machine_kstackptr": "0xF0", "off_thread_machine_jop_pid": "0x160", "off_thread_machine_rop_pid": "0x160-8",
+        "off_thread_guard_exc_info_code": "0x320", "off_thread_ast": "0x39C", "off_thread_task_threads_next": "0x368",
+        "off_thread_machine_upcb": "0xb8", "off_thread_options": "0x70"
+      },
+      "A13": {
+        "off_thread_t_tro": "0x388", "off_thread_ctid": "0x438", "off_thread_mutex_lck_mtx_data": "0x3B0+8",
+        "off_thread_machine_kstackptr": "0xF8", "off_thread_machine_jop_pid": "0x168", "off_thread_machine_rop_pid": "0x168-8",
+        "off_thread_guard_exc_info_code": "0x330", "off_thread_ast": "0x3ac", "off_thread_task_threads_next": "0x378"
+      },
+      "A15_M2": {
+        "off_thread_t_tro": "0x390", "off_thread_ctid": "0x440", "off_thread_mutex_lck_mtx_data": "0x3B8+8",
+        "off_thread_machine_jop_pid": "0x170", "off_thread_machine_rop_pid": "0x170-8",
+        "off_thread_guard_exc_info_code": "0x338", "off_thread_ast": "0x3b4", "off_thread_task_threads_next": "0x380",
+        "off_task_task_exc_guard": "0x5f4"
+      },
+      "A17": {
+        "off_thread_t_tro": "0x3E0", "off_thread_ctid": "0x490", "off_thread_mutex_lck_mtx_data": "0x408+8",
+        "off_thread_machine_jop_pid": "0x1c0", "off_thread_machine_rop_pid": "0x1c0-8",
+        "off_thread_machine_kstackptr": "0x148", "off_thread_guard_exc_info_code": "0x388",
+        "off_thread_ast": "0x404", "off_thread_task_threads_next": "0x3d0",
+        "off_thread_machine_upcb": "0x108", "off_thread_options": "0xC0"
+      },
+      "A18": {
+        "off_thread_t_tro": "0x3E8", "off_thread_ctid": "0x4A8", "off_thread_mutex_lck_mtx_data": "0x410+8",
+        "off_thread_guard_exc_info_code": "0x390", "off_thread_ast": "0x40C", "off_thread_task_threads_next": "0x3d8",
+        "off_task_task_exc_guard": "0x5fc"
+      },
+      "A10": {
+        "off_thread_t_tro": "0x3A8", "off_thread_ctid": "0x458", "off_thread_mutex_lck_mtx_data": "0x3d0+8",
+        "off_thread_machine_kstackptr": "0x138", "off_thread_guard_exc_info_code": "0x350",
+        "off_thread_ast": "0x3cc", "off_thread_task_threads_next": "0x398",
+        "off_thread_machine_upcb": "0x100", "off_thread_options": "0xb8", "off_task_task_exc_guard": "0x5c4"
+      }
+    },
+    "iOS_18_1": {
+      "_source": "filza offsets.m L655-702 (same as iOS 18.0 base + small shifts)",
+      "_note": "iOS 18.1-18.3 — shifts A12 +0x0, A13+ +0x0, A15+ +0x0 (very small delta)"
+    },
+    "iOS_18_4": {
+      "_source": "filza offsets.m L704-773",
+      "_note": "iOS 18.4-18.5 — guard_exc_info_code renamed to mach_exc_info_code, proc_ro_p_ucred shifts 0x20 → 0x28",
+      "A12": {
+        "off_thread_t_tro": "0x378", "off_thread_ctid": "0x428", "off_thread_mutex_lck_mtx_data": "0x3A0+8",
+        "off_thread_mach_exc_info_code": "0x328", "off_thread_mach_exc_info_os_reason": "0x328-8",
+        "off_thread_mach_exc_info_exception_type": "0x328-4", "off_thread_ast": "0x39C",
+        "off_thread_task_threads_next": "0x368", "off_task_task_exc_guard": "0x5FC",
+        "off_thread_guard_exc_info_code": "0xdeaddead", "off_proc_ro_p_ucred": "0x28"
+      },
+      "A13": {
+        "off_thread_t_tro": "0x388", "off_thread_ctid": "0x438", "off_thread_mutex_lck_mtx_data": "0x3B0+8",
+        "off_thread_mach_exc_info_code": "0x338", "off_thread_mach_exc_info_os_reason": "0x338-8",
+        "off_thread_mach_exc_info_exception_type": "0x338-4", "off_thread_ast": "0x3AC",
+        "off_thread_task_threads_next": "0x378"
+      },
+      "A15_M2": {
+        "off_thread_t_tro": "0x390", "off_thread_ctid": "0x448", "off_thread_mutex_lck_mtx_data": "0x3B8+8",
+        "off_thread_mach_exc_info_code": "0x340", "off_thread_mach_exc_info_os_reason": "0x340-8",
+        "off_thread_mach_exc_info_exception_type": "0x340-4", "off_thread_ast": "0x3B4",
+        "off_thread_task_threads_next": "0x380", "off_task_task_exc_guard": "0x624"
+      },
+      "A17": {
+        "off_thread_t_tro": "0x3E0", "off_thread_ctid": "0x498", "off_thread_mutex_lck_mtx_data": "0x408+8",
+        "off_thread_mach_exc_info_code": "0x390", "off_thread_mach_exc_info_os_reason": "0x390-8",
+        "off_thread_mach_exc_info_exception_type": "0x390-4", "off_thread_ast": "0x404",
+        "off_thread_task_threads_next": "0x3D0"
+      },
+      "A18": {
+        "off_thread_t_tro": "0x3E8", "off_thread_ctid": "0x4A8", "off_thread_mutex_lck_mtx_data": "0x410+8",
+        "off_thread_mach_exc_info_code": "0x398", "off_thread_mach_exc_info_os_reason": "0x398-8",
+        "off_thread_mach_exc_info_exception_type": "0x398-4", "off_thread_ast": "0x40C",
+        "off_thread_task_threads_next": "0x3D8"
+      }
+    },
+    "iOS_18_6": {
+      "_source": "filza offsets.m L775-833 (verified iPhone14,6 iOS 18.6.2)",
+      "A12": {
+        "off_thread_t_tro": "0x380", "off_thread_ctid": "0x430", "off_thread_mutex_lck_mtx_data": "0x3a8+8",
+        "off_thread_mach_exc_info_code": "0x330", "off_thread_mach_exc_info_os_reason": "0x330-8",
+        "off_thread_mach_exc_info_exception_type": "0x330-4", "off_thread_ast": "0x3A4",
+        "off_thread_task_threads_next": "0x370"
+      },
+      "A13": {
+        "off_thread_t_tro": "0x390", "off_thread_ctid": "0x440", "off_thread_mutex_lck_mtx_data": "0x3B8+8",
+        "off_thread_mach_exc_info_code": "0x340", "off_thread_mach_exc_info_os_reason": "0x340-8",
+        "off_thread_mach_exc_info_exception_type": "0x340-4", "off_thread_ast": "0x3B4",
+        "off_thread_task_threads_next": "0x380"
+      },
+      "A15_M2": {
+        "off_thread_t_tro": "0x398", "off_thread_ctid": "0x450", "off_thread_mutex_lck_mtx_data": "0x3c0+8",
+        "off_thread_mach_exc_info_code": "0x348", "off_thread_mach_exc_info_os_reason": "0x348-8",
+        "off_thread_mach_exc_info_exception_type": "0x348-4", "off_thread_ast": "0x3bc",
+        "off_thread_task_threads_next": "0x388"
+      },
+      "A17": {
+        "off_thread_t_tro": "0x3E8", "off_thread_ctid": "0x4a0", "off_thread_mutex_lck_mtx_data": "0x410+8",
+        "off_thread_mach_exc_info_code": "0x398", "off_thread_mach_exc_info_os_reason": "0x398-8",
+        "off_thread_mach_exc_info_exception_type": "0x398-4", "off_thread_ast": "0x40C",
+        "off_thread_task_threads_next": "0x3D8"
+      },
+      "A18": {
+        "off_thread_t_tro": "0x3F0", "off_thread_ctid": "0x4b0", "off_thread_mutex_lck_mtx_data": "0x418+8",
+        "off_thread_mach_exc_info_code": "0x3a0", "off_thread_mach_exc_info_os_reason": "0x3a0-8",
+        "off_thread_mach_exc_info_exception_type": "0x3a0-4", "off_thread_ast": "0x414",
+        "off_thread_task_threads_next": "0x3E0"
+      }
+    },
+    "iOS_26_0": {
+      "_source": "filza offsets.m L835-951 (verified iPhone14,6 iOS 26.0)",
+      "A12": {
+        "off_thread_t_tro": "0x390", "off_thread_ctid": "0x430", "off_thread_mutex_lck_mtx_data": "0x3A8+8",
+        "off_thread_machine_kstackptr": "0xf0", "off_thread_machine_jop_pid": "0x160",
+        "off_thread_machine_rop_pid": "0x160-8", "off_thread_guard_exc_info_code": "0xdeaddead",
+        "off_thread_mach_exc_info_code": "0x330", "off_thread_mach_exc_info_os_reason": "0x330-8",
+        "off_thread_mach_exc_info_exception_type": "0x330-4", "off_thread_ast": "0x3A4",
+        "off_thread_task_threads_next": "0x370", "off_task_task_exc_guard": "0x5d4"
+      },
+      "A13": {
+        "off_thread_t_tro": "0x390", "off_thread_ctid": "0x440", "off_thread_mutex_lck_mtx_data": "0x3B8+8",
+        "off_thread_machine_kstackptr": "0xf8", "off_thread_machine_jop_pid": "0x168",
+        "off_thread_machine_rop_pid": "0x168-8", "off_thread_mach_exc_info_code": "0x340",
+        "off_thread_mach_exc_info_os_reason": "0x340-8", "off_thread_mach_exc_info_exception_type": "0x340-4",
+        "off_thread_ast": "0x3b4", "off_thread_task_threads_next": "0x380"
+      },
+      "A15_M2": {
+        "off_thread_t_tro": "0x398", "off_thread_ctid": "0x450", "off_thread_mutex_lck_mtx_data": "0x3C0+8",
+        "off_thread_machine_jop_pid": "0x170", "off_thread_machine_rop_pid": "0x170-8",
+        "off_thread_mach_exc_info_code": "0x348", "off_thread_mach_exc_info_os_reason": "0x348-8",
+        "off_thread_mach_exc_info_exception_type": "0x348-4", "off_thread_ast": "0x3BC",
+        "off_thread_task_threads_next": "0x388", "off_task_task_exc_guard": "0x5fc"
+      },
+      "A17": {
+        "off_thread_machine_upcb": "0x108", "off_thread_machine_contextdata": "0x108-8",
+        "off_thread_t_tro": "0x3e8", "off_thread_ctid": "0x4a0", "off_thread_options": "0xc0",
+        "off_thread_mutex_lck_mtx_data": "0x410+8", "off_thread_machine_kstackptr": "0x148",
+        "off_thread_machine_jop_pid": "0x1c0", "off_thread_machine_rop_pid": "0x1c0-8",
+        "off_thread_mach_exc_info_code": "0x398", "off_thread_mach_exc_info_os_reason": "0x398-8",
+        "off_thread_mach_exc_info_exception_type": "0x398-4", "off_thread_ast": "0x40c",
+        "off_thread_task_threads_next": "0x3d8"
+      },
+      "A18": {
+        "off_thread_t_tro": "0x3f0", "off_thread_ctid": "0x4b0", "off_thread_mutex_lck_mtx_data": "0x418+8",
+        "off_thread_mach_exc_info_code": "0x3a0", "off_thread_mach_exc_info_os_reason": "0x3a0-8",
+        "off_thread_mach_exc_info_exception_type": "0x3a0-4", "off_thread_ast": "0x414",
+        "off_thread_task_threads_next": "0x3e0", "off_task_task_exc_guard": "0x604"
+      }
+    }
+  },
+  "shared_constants": {
+    "off_inpcb_inp_list_le_next": "0x20",
+    "off_inpcb_inp_pcbinfo": "0x38",
+    "off_inpcb_inp_socket": "0x40",
+    "off_inpcb_inp_depend6_inp6_icmp6filt": "0x148",
+    "off_inpcb_inp_depend6_inp6_chksum": "0x150",
+    "off_inpcbinfo_ipi_zone": "0x68",
+    "off_socket_so_usecount_17": "0x22c",
+    "off_socket_so_usecount_18_0": "0x254",
+    "off_socket_so_usecount_18_4": "0x254",
+    "off_socket_so_usecount_18_6": "0x254",
+    "off_socket_so_usecount_26": "0x23c",
+    "off_socket_so_proto_17": "0x18",
+    "off_socket_so_proto_18_26": "0x20",
+    "off_socket_so_background_thread_17": "0x288",
+    "off_socket_so_background_thread_18_0_18_6": "0x2b0",
+    "off_socket_so_background_thread_26": "0x298",
+    "off_kalloc_type_view_kt_zv_zv_name": "0x10",
+    "off_thread_ro_tro_proc_17": "0x10",
+    "off_thread_ro_tro_proc_18_26": "0x18",
+    "off_thread_ro_tro_task_17": "0x20",
+    "off_thread_ro_tro_task_18_26": "0x28",
+    "off_thread_machine_upcb_A12_18_0_26": "0xb8",
+    "off_thread_machine_upcb_A17_18_0_26": "0x108",
+    "off_thread_options_A12_18_26": "0x70",
+    "off_thread_options_A17_18_26": "0xc0",
+    "off_proc_p_list_le_next": "0x0",
+    "off_proc_p_list_le_prev": "0x8",
+    "off_proc_p_proc_ro": "0x18",
+    "off_proc_p_pid": "0x60",
+    "off_proc_p_fd": "0xd0",
+    "off_proc_p_flag": "0x454",
+    "off_proc_p_textvp": "0x548",
+    "off_proc_p_name_17": "0x579",
+    "off_proc_p_name_18_26": "0x57d",
+    "off_proc_ro_pr_task": "0x8",
+    "off_proc_ro_p_ucred_17_18_3": "0x20",
+    "off_proc_ro_p_ucred_18_4_26": "0x28",
+    "off_ucred_cr_label": "0x78",
+    "off_task_itk_space_17": "0x300",
+    "off_task_itk_space_18_0_18_6": "0x318",
+    "off_task_itk_space_26": "0x310",
+    "off_task_threads_next_17": "0x58",
+    "off_task_threads_next_18_26": "0x50",
+    "off_task_map": "0x28",
+    "off_filedesc_fd_ofiles": "0x28",
+    "off_filedesc_fd_cdir": "0x48",
+    "off_fileproc_fp_glob": "0x10",
+    "off_fileglob_fg_data": "0x38",
+    "off_fileglob_fg_flag": "0x10",
+    "off_vnode_v_ncchildren_tqh_first": "0x30",
+    "off_vnode_v_nclinks_lh_first": "0x40",
+    "off_vnode_v_parent": "0xc0",
+    "off_vnode_v_data": "0xe0",
+    "off_vnode_v_name": "0xb8",
+    "off_vnode_v_usecount": "0x60",
+    "off_vnode_v_iocount": "0x64",
+    "off_vnode_v_writecount": "0xb0",
+    "off_vnode_v_flag": "0x54",
+    "off_vnode_v_mount": "0xd8",
+    "off_mount_mnt_flag": "0x70",
+    "off_namecache_nc_vp": "0x50",
+    "off_namecache_nc_child_tqe_next": "0x10",
+    "off_arm_saved_state64_lr": "0xf0",
+    "off_arm_saved_state64_pc": "0x100",
+    "off_arm_saved_state_uss_ss_64": "0x8",
+    "off_ipc_space_is_table_17_18": "0x20",
+    "off_ipc_space_is_table_26": "0x48",
+    "off_ipc_entry_ie_object": "0",
+    "off_ipc_port_ip_kobject_17_18": "0x48",
+    "off_ipc_port_ip_kobject_26": "0x50",
+    "off_arm_kernel_saved_state_sp": "0x60",
+    "off_vm_map_hdr": "0x10",
+    "off_vm_map_header_nentries": "0x20",
+    "off_vm_map_entry_links_next": "0x8",
+    "off_vm_map_entry_vme_object_or_delta": "0x3c",
+    "off_vm_map_entry_vme_alias": "0x40",
+    "off_vm_map_header_links_next": "0x8",
+    "off_vm_object_vo_un1_vou_size": "0x18",
+    "off_vm_object_ref_count": "0x28",
+    "off_vm_named_entry_backing_copy": "0x10",
+    "off_vm_named_entry_size": "0x20",
+    "off_label_l_perpolicy_amfi": "0x8",
+    "off_label_l_perpolicy_sandbox": "0x10",
+    "sizeof_ipc_entry": "0x18",
+    "smr_base": "2",
+    "t1sz_boot_A12_to_A15": "0x19",
+    "t1sz_boot_A16_MSeries": "0x11",
+    "pac_mask_formula": "~((1ULL << (64 - t1sz_boot)) - 1ULL)",
+    "VM_MIN_KERNEL_ADDRESS_default": "0xFFFFFFDC00000000",
+    "VM_MAX_KERNEL_ADDRESS_default": "0xFFFFFFFBFFFFFFFF",
+    "VM_MIN_KERNEL_ADDRESS_MSeriesIpad": "0xFFFFFE0000000000",
+    "VM_MAX_KERNEL_ADDRESS_MSeriesIpad": "0xFFFFFE8FFFFFFFFF"
+  }
+}

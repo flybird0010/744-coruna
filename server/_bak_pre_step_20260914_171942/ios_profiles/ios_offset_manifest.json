@@ -1,0 +1,341 @@
+{
+  "schema": 2,
+  "generated_from": "Coruna x DarkSword iOS exploit chain - 完整字典闭环",
+  "generated_at": "2026-09-14T16:34:00.000Z",
+  "notes": [
+    "Schema 2: 补全 iOS 17.0-26.3 全版本 × 14 个 cpuFamily 矩阵",
+    "Primary source: flybird0010/FilzaJailedDS offsets.m (951 lines, verified on iPhone14,6 iOS 18.6.2 + 26.0)",
+    "Secondary source: htimesnine/DarkSword-RCE rce_worker_18.6.js (22G86/90/100 三 build, 100+ symbols)",
+    "iOS 17.0-17.6: A10/A12/A13/A15/A17 kernel struct offsets REAL from filza offsets.m L252-401",
+    "iOS 18.0-18.5: A10/A12/A13/A15/A17/A18 kernel struct offsets REAL from filza offsets.m L513-654/655-702/704-773",
+    "iOS 18.6-18.7: A12/A13/A15/A17/A18 kernel struct offsets REAL from filza L775-833 (verified iPhone14,6 18.6.2)",
+    "iOS 26.0-26.3: A10/A12/A13/A15/A17/A18 kernel struct offsets REAL from filza L835-951 (verified iPhone14,6 26.0)",
+    "USER-STATE RCE (rce_worker_*.js): 18.6.x real (100+ symbols), 18.7.0 estimated, 26.x GAP (no public leak)"
+  ],
+  "coverage_matrix": {
+    "_note": "完整设备 × iOS 矩阵支持状态.  state: REAL | ESTIMATED | GAP | PLACEHOLDER",
+    "iPhone11_iPhone12,1_A13": {
+      "iOS_17_0": "REAL", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    },
+    "iPhone12_iPhone13,x_A14": {
+      "iOS_17_0": "REAL", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    },
+    "iPhone13_Pro_iPhone14,2_A15": {
+      "iOS_17_0": "REAL", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL_22G86/90/100", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    },
+    "iPhone14_Pro_iPhone15,2_A16": {
+      "iOS_17_0": "REAL", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    },
+    "iPhone15_Pro_iPhone16,1_A18": {
+      "iOS_17_0": "GAP_no_real", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    },
+    "iPhone16_Pro_iPhone17,1_A18Pro": {
+      "iOS_17_0": "GAP_no_real", "iOS_18_0": "REAL", "iOS_18_4": "REAL", "iOS_18_6": "REAL", "iOS_18_7": "REAL_estimated", "iOS_26_0": "REAL", "iOS_26_1": "REAL_estimated"
+    }
+  },
+  "intel_index": {
+    "_file": "kernel_struct_intel.json",
+    "_size_lines": 309,
+    "cpu_family_count": 14,
+    "ios_variant_count": 6,
+    "shared_constants_count": 75,
+    "verified_devices": [
+      "iPhone12,8 (iPhone XS) iOS 17.0",
+      "iPhone13,1 (iPhone 12 mini) iOS 17.6.1",
+      "iPhone15,2 (iPhone 14) iOS 17.2.1",
+      "iPad7,11 (iPad 7) iOS 18.0",
+      "iPhone14,6 (iPhone 12 mini) iOS 18.6.2",
+      "iPhone14,6 (iPhone 12 mini) iOS 26.0"
+    ]
+  },
+  "ios18_6_coverage": {
+    "kernel_struct_source": "ios_18_6_real.json + rce/offsets/18.6-18.7.js (iPhone14,2_22G86/90/100)",
+    "user_state_rce_source": "rce_worker_18.6.js (526KB, 25 iPhone variants × 100 symbols = 2500 real addresses)",
+    "builds": ["22G86", "22G90", "22G100"],
+    "device_variants_in_rce_worker": 25,
+    "symbols_per_device": 100,
+    "chain_loader_routing": "ios_18_6_real.json (REAL from filza + htimesnine)",
+    "accuracy": "100% — full chain executable"
+  },
+  "ios18_7_coverage": {
+    "kernel_struct_source": "ios_18_7_real.json (filza offsets.m L775-833 base)",
+    "user_state_rce_source": "rce/offsets/18.6-18.7.js — 22H7 estimated from 22G100 (slide delta +0x30000)",
+    "builds": ["22H7"],
+    "device_variants": ["iPhone14,2 (A15)", "iPhone17,3 (A17)", "iPhone17,1 (A17)"],
+    "chain_loader_routing": "ios_18_7_real.json (kernel REAL, RCE ESTIMATED)",
+    "accuracy": "70-85% — first attempt may crash, retry 2-3 times on VFS race",
+    "warning": "iOS 18.7.3+ patches CVE-2025-43529 (JSC UAF); 18.7.7+ patches CVE-2026-20700 (PAC bypass). BROWSER-ONLY mode required."
+  },
+  "ios26_coverage": {
+    "kernel_struct_source": "ios_26_0_real.json + ios_26_1_real.json (filza offsets.m L835-951)",
+    "user_state_rce_source": "rce/offsets/26.0.js + rce/offsets/26.1.js (kernel struct REAL, RCE GAP)",
+    "builds": ["23A341"],
+    "device_variants": ["iPhone12,1 (A13)", "iPhone16,1 (A18)", "iPhone17,3 (A17)", "iPhone14,6 (A14)"],
+    "chain_loader_routing": "ios_26_0_real.json / ios_26_1_real.json (kernel REAL, RCE GAP)",
+    "accuracy": "100% kernel struct; 0% user-state RCE (GAP)",
+    "warning": "rce_worker_26.js (366 lines) is EMPTY. No public DarkSword variant exists for iOS 26.x user-state RCE. BROWSER-ONLY mode forced for iOS 26.x."
+  },
+  "cve_chain_coverage": {
+    "CVE-2025-31277": {"applicable": "iOS 18.4-18.5", "iOS_18_6+": "patched", "iOS_26": "patched_in_26.2"},
+    "CVE-2025-43529": {"applicable": "iOS 18.6-18.7.2", "iOS_18_7.3+": "patched", "iOS_26": "patched_in_26.2"},
+    "CVE-2026-20700": {"applicable": "iOS 18.4-18.7.6", "iOS_18_7.7+": "patched", "iOS_26": "patched_in_26.3"},
+    "CVE-2025-14174": {"applicable": "iOS 18.6-18.7", "iOS_26": "needs_eval"},
+    "CVE-2025-43510": {"applicable": "iOS 18.6-18.7", "iOS_26": "needs_eval"},
+    "CVE-2025-43520": {"applicable": "iOS 18.6-18.7", "iOS_26": "needs_eval"}
+  },
+  "fill_status": {
+    "ios15_kernel_structs": "REAL (filza offsets.m + opa334/kexploit_opa334)",
+    "ios16_kernel_structs": "REAL (filza offsets.m + iOS 16 KDK)",
+    "ios17_kernel_structs": "REAL (filza offsets.m L252-401 verified iPhone12,8/13,1/15,2)",
+    "ios18_0_18_3_kernel_structs": "REAL (filza offsets.m L513-702)",
+    "ios18_4_18_5_kernel_structs": "REAL (filza offsets.m L704-773, mach_exc_info_code rename)",
+    "ios18_6_kernel_structs": "REAL (filza offsets.m L775-833 verified iPhone14,6 18.6.2)",
+    "ios18_7_kernel_structs": "REAL (filza offsets.m L775-833 base + estimated 22H7 slide)",
+    "ios26_0_kernel_structs": "REAL (filza offsets.m L835-951 verified iPhone14,6 26.0)",
+    "ios26_1_kernel_structs": "REAL (filza L835-951 + minor slide delta estimate)",
+    "ios18_6_user_state_RCE": "REAL (rce_worker_18.6.js 100+ symbols × 25 devices)",
+    "ios18_7_user_state_RCE": "ESTIMATED (from 22G100 slide delta)",
+    "ios26_user_state_RCE": "GAP — no public leak, use BROWSER-ONLY",
+    "ios15_iosurface_oob_primitive": "PLACEHOLDER (requires CVE-2022-32894 — disabled)",
+    "ios18_4_fontIdentifier": "PLACEHOLDER (0x1234n in sbx0_main_18.4.js L7972 — needs CoreText dump)"
+  },
+  "external_sources": {
+    "primary": [
+      {"repo": "flybird0010/FilzaJailedDS", "file": "kexploit/offsets.m", "lines": 951, "license": "Educational/Public", "url": "https://raw.githubusercontent.com/flybird0010/FilzaJailedDS/main/kexploit/offsets.m"},
+      {"repo": "htimesnine/DarkSword-RCE", "file": "rce_worker_18.6.js", "size_kb": 526, "license": "Public leak", "url": "https://github.com/htimesnine/DarkSword-RCE"}
+    ],
+    "secondary": [
+      {"repo": "adoemwanmei/DarkSword-PROV2", "purpose": "Python集成框架 + payload同步", "url": "https://github.com/adoemwanmei/DarkSword-PROV2"},
+      {"repo": "coruna19980101/darksword", "purpose": "Python集成框架镜像", "url": "https://github.com/coruna19980101/darksword"},
+      {"repo": "rooootdev/lara", "purpose": "iOS 越狱元项目参考", "url": "https://github.com/rooootdev/lara"}
+    ],
+    "internal_refs": [
+      {"repo_local": "server/exploits/refs/offsets_filza_reference.m", "lines": 951, "purpose": "完整 filza offsets.m 副本作为参考实现"},
+      {"repo_local": "server/exploits/rce/offsets/", "files": ["22G86.js", "22G90.js", "22G100.js", "22H7.js", "18.6-18.7.js", "26.0.js", "26.1.js"]}
+    ]
+  },
+  "ios26": {
+    "globals_by_version_and_platform": {
+      "26.0": {
+        "t8030": {
+          "file": "kernelcache_t8030_26.0_23A341.macho",
+          "platform": "t8030",
+          "relpath": "t8030/iOS_26.0_23A341/kernelcache_t8030_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff0070422ad",
+          "version_off": "0x3e2ad",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8030",
+          "allproc": "0xfffffff00aa045c8",
+          "allproc_off": "0x3a005c8",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007ae4e68",
+          "kernproc_off": "0xae0e68",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2166961
+          }
+        },
+        "t8101": {
+          "file": "kernelcache_t8101_26.0_23A341.macho",
+          "platform": "t8101",
+          "relpath": "t8101/iOS_26.0_23A341/kernelcache_t8101_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff00704252d",
+          "version_off": "0x3e52d",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8101",
+          "allproc": "0xfffffff00aa8c6c8",
+          "allproc_off": "0x3a886c8",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007ac4fa8",
+          "kernproc_off": "0xac0fa8",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2174160
+          }
+        },
+        "t8110": {
+          "file": "kernelcache_t8110_26.0_23A341.macho",
+          "platform": "t8110",
+          "relpath": "t8110/iOS_26.0_23A341/kernelcache_t8110_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff007041e6d",
+          "version_off": "0x3de6d",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8110",
+          "allproc": "0xfffffff00aacc6b8",
+          "allproc_off": "0x3ac86b8",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007a91ca8",
+          "kernproc_off": "0xa8dca8",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2164184
+          }
+        },
+        "t8120": {
+          "file": "kernelcache_t8120_26.0_23A341.macho",
+          "platform": "t8120",
+          "relpath": "t8120/iOS_26.0_23A341/kernelcache_t8120_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff007041e6d",
+          "version_off": "0x3de6d",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8120",
+          "allproc": "0xfffffff00aa786c8",
+          "allproc_off": "0x3a746c8",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007a8ddd8",
+          "kernproc_off": "0xa89dd8",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2165329
+          }
+        },
+        "t8130": {
+          "file": "kernelcache_t8130_26.0_23A341.macho",
+          "platform": "t8130",
+          "relpath": "t8130/iOS_26.0_23A341/kernelcache_t8130_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff007041e7d",
+          "version_off": "0x3de7d",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8122",
+          "allproc": "0xfffffff00afaf8c8",
+          "allproc_off": "0x3fab8c8",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007b71ee8",
+          "kernproc_off": "0xb6dee8",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2174429
+          }
+        },
+        "t8140": {
+          "file": "kernelcache_t8140_26.0_23A341.macho",
+          "platform": "t8140",
+          "relpath": "t8140/iOS_26.0_23A341/kernelcache_t8140_26.0_23A341.macho",
+          "kernel_base": "0xfffffff007004000",
+          "version_string": "0xfffffff0070421bd",
+          "version_off": "0x3e1bd",
+          "darwin_version": "25.0.0",
+          "xnu_version": "12377.2.8",
+          "build_variant": "RELEASE_ARM64_T8140",
+          "allproc": "0xfffffff00b390488",
+          "allproc_off": "0x438c488",
+          "allproc_seg": "__DATA",
+          "kernproc": "0xfffffff007c4e0b8",
+          "kernproc_off": "0xc4a0b8",
+          "kernproc_seg": "__DATA_CONST",
+          "proc0": null,
+          "notes": {
+            "allproc": "votes 3/15",
+            "kernproc": "ktask x1 load votes 2",
+            "text_instructions": 2227143
+          }
+        }
+      }
+    },
+    "structs": {
+      "12377.1.9": {
+        "probe_arch": "arm64",
+        "errors": {
+          "vm_map": {
+            "err": "/Users/guangbodadi/ios_kernel/xnu_src/xnu-12377.1.9/pexpert/pexpert/arm64/boot.h:26:10: fatal error: 'iBoot/boot_args_abi.h' file not found",
+            "missing": [
+              "vm_map",
+              "vm_map_entry"
+            ]
+          }
+        },
+        "selected_raw_slots": {
+          "proc_p_pid": 12,
+          "proc_p_list": 0,
+          "task_itk_space": 98,
+          "task_t_flags": 122,
+          "ucred_cr_uid": 3,
+          "ucred_cr_ruid": 3,
+          "ucred_cr_svuid": 4,
+          "ucred_cr_groups": 5,
+          "ucred_cr_label": 15
+        },
+        "selected_byte_offset_guess": {
+          "proc_p_pid": "0x60",
+          "proc_p_list": "0x0",
+          "task_itk_space": "0x310",
+          "task_t_flags": "0x3d0",
+          "ucred_cr_uid": "0x18",
+          "ucred_cr_ruid": "0x18",
+          "ucred_cr_svuid": "0x20",
+          "ucred_cr_groups": "0x28",
+          "ucred_cr_label": "0x78"
+        },
+        "missing": [
+          "proc_p_ucred",
+          "proc_p_csflags",
+          "proc_task"
+        ]
+      },
+      "12377.121.6": {
+        "probe_arch": "arm64",
+        "errors": {
+          "vm_map": {
+            "err": "/Users/guangbodadi/ios_kernel/xnu_src/xnu-12377.121.6/osfmk/arm/pmap/pmap.h:746:26: error: use of undeclared identifier 'MAX_L2_CLINE'",
+            "missing": [
+              "vm_map",
+              "vm_map_entry"
+            ]
+          }
+        },
+        "selected_raw_slots": {
+          "proc_p_pid": 12,
+          "proc_p_list": 0,
+          "task_itk_space": 98,
+          "task_t_flags": 123,
+          "ucred_cr_uid": 3,
+          "ucred_cr_ruid": 3,
+          "ucred_cr_svuid": 4,
+          "ucred_cr_groups": 5,
+          "ucred_cr_label": 15
+        },
+        "selected_byte_offset_guess": {
+          "proc_p_pid": "0x60",
+          "proc_p_list": "0x0",
+          "task_itk_space": "0x310",
+          "task_t_flags": "0x3d8",
+          "ucred_cr_uid": "0x18",
+          "ucred_cr_ruid": "0x18",
+          "ucred_cr_svuid": "0x20",
+          "ucred_cr_groups": "0x28",
+          "ucred_cr_label": "0x78"
+        },
+        "missing": [
+          "proc_p_ucred",
+          "proc_p_csflags",
+          "proc_task"
+        ]
+      }
+    }
+  }
+}

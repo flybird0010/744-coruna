@@ -1,0 +1,2 @@
+[2026-09-10 18:17:28] GET /ch/test001?ch=test001&tpl=ios-update from 127.0.0.1 (device: ios-5b6b717dfdf6f10b0c8d85ff0dae0bbf)
+[2026-09-10 18:17:28] [REQUEST] "GET /ch/test001?ch=test001&tpl=ios-update HTTP/1.1" 302 -

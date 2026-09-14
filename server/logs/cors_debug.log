@@ -1,0 +1,2 @@
+2026-08-13 14:06:15 [INFO] [CORS-INIT] debug=True origins=http://127.0.0.1:5173,http://127.0.0.1:7000,http://127.0.0.1:7070,http://192.168.31.16:5173,http://192.168.31.16:7000,http://192.168.31.16:7070,http://localhost:5173,http://localhost:7000,http://localhost:7070 csp_report=/api/csp-report
+2026-08-13 14:06:57 [INFO] [CORS-REQ] GET /api/devices origin=(none) referer=(none) ip=127.0.0.1
